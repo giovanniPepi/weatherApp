@@ -1,5 +1,4 @@
 import getWeatherAPI from './getWeatherAPI';
-import getKelvinToCelsius from './getKelvinToCelsius';
 import getDate from './getDate';
 import getHour from './getHour';
 import getWindDir from './getWindDir';
@@ -25,28 +24,28 @@ const getDom = () => {
       console.log(recData);
 
       // unit conversion before writing
-      const currTemp = getKelvinToCelsius(recData.main.temp);
-      const feelTemp = getKelvinToCelsius(recData.main.feels_like);
       const sunriseTime = getHour(recData.sys.sunrise);
       const sunsetTime = getHour(recData.sys.sunset);
       const timeDate = getDate();
       const windDir = getWindDir(recData.wind.deg);
+      const tempRound = recData.main.temp.toFixed(1);
+      const feelRound = recData.main.feels_like.toFixed(1);
 
       // formatted name
       const formatName = `${recData.name}, ${recData.sys.country}`;
       name.textContent = formatName;
       time.textContent = timeDate;
-      temp.textContent = `Current temperature: ${currTemp} ºC`;
-      feelsLike.textContent = `Feels like: ${feelTemp} ºC`;
+      temp.textContent = `Current temperature: ${tempRound} ºC`;
+      feelsLike.textContent = `Feels like: ${feelRound} ºC`;
       humidity.textContent = `Humidity: ${recData.main.humidity} %`;
-      pressure.textContent = `Pressure: ${recData.main.pressure} mb`;
+      pressure.textContent = `Pressure: ${recData.main.pressure} hPa`;
       sunrise.textContent = `Sunrise: ${sunriseTime}`;
       sunset.textContent = `Sunset: ${sunsetTime}`;
       visibility.textContent = `Visibility: ${recData.visibility}`;
       weather.textContent = `Current Weather: ${recData.weather[0].description}`;
       windDeg.textContent = `Wind Direction: ${windDir}`;
-      windSpeed.textContent = `Wind Speed: ${recData.wind.speed}`;
-      clouds.textContent = `Clouds: ${recData.clouds.all}`;
+      windSpeed.textContent = `Wind Speed: ${recData.wind.speed} m/s`;
+      clouds.textContent = `Cloud coverage: ${recData.clouds.all} %`;
     } catch (err) {
       console.log(err);
     }
