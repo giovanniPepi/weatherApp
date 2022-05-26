@@ -7,7 +7,7 @@ import verifySnow from './verifySnow';
 import getNowTime from './getNowTime';
 import convertToKm from './convertToKm';
 
-const getDom = (city) => {
+const getDom = (lat, lon) => {
   // queries
   const name = document.querySelector('.name');
   const date = document.querySelector('.date');
@@ -29,7 +29,7 @@ const getDom = (city) => {
   // writing to DOM
   const writeWeatherData = async () => {
     try {
-      const recData = await getWeatherAPI(city);
+      const recData = await getWeatherAPI(lat, lon);
       console.log(recData);
 
       // unit conversion before writing

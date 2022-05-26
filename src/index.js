@@ -2,7 +2,6 @@ import './style.css';
 import getDom from './getDom';
 import getEventListeners from './getEventListeners';
 
-// getWeatherAPI('campinas');
-
-getDom('campinas');
+// default campinas
+getDom(-22.90556, -47.06083);
 getEventListeners();

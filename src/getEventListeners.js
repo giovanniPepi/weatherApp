@@ -1,3 +1,4 @@
+import getDom from './getDom';
 import getGeoAPI from './getGeoAPI';
 
 const getEventListeners = () => {
@@ -8,9 +9,10 @@ const getEventListeners = () => {
   // store searchs
   let resultArray = [];
 
+  // queries coordinates, stores then, call for getDOM to change what's displayed
   const processInpt = async (value) => {
     try {
-      // clean stored values
+      // clean stored
       resultArray = [];
       const geoData = await getGeoAPI(value);
       console.log(geoData);
@@ -26,7 +28,11 @@ const getEventListeners = () => {
       geoData1.push(`${geoData[1].lat}`);
       geoData1.push(`${geoData[1].lon}`);
 
+      // store for future use
       resultArray.push(geoData0, geoData1);
+
+      // calls for rewriting the DOM with new city
+      getDom(`${geoData[0].lat}`, `${geoData[0].lon}`);
 
       console.log(geoData0);
       console.log(geoData1);
