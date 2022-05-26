@@ -3,9 +3,15 @@ import getGeoAPI from './getGeoAPI';
 const getEventListeners = () => {
   const search = document.querySelector('#search');
   const searchBtn = document.querySelector('.go');
+  const showResults = document.querySelector('.showResults');
+
+  // store searchs
+  let resultArray = [];
 
   const processInpt = async (value) => {
     try {
+      // clean stored values
+      resultArray = [];
       const geoData = await getGeoAPI(value);
       console.log(geoData);
 
@@ -20,6 +26,8 @@ const getEventListeners = () => {
       geoData1.push(`${geoData[1].lat}`);
       geoData1.push(`${geoData[1].lon}`);
 
+      resultArray.push(geoData0, geoData1);
+
       console.log(geoData0);
       console.log(geoData1);
     } catch (err) {
@@ -28,6 +36,7 @@ const getEventListeners = () => {
   };
 
   searchBtn.addEventListener('click', () => processInpt(search.value));
+  showResults.addEventListener('click', () => console.log(resultArray));
 };
 
 export default getEventListeners;
