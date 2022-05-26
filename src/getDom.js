@@ -5,8 +5,10 @@ import getWindDir from './getWindDir';
 import verifyRain from './verifyRain';
 import verifySnow from './verifySnow';
 
-const getDom = () => {
+const getDom = (city) => {
+  // queries
   const name = document.querySelector('.name');
+  const date = document.querySelector('.date');
   const time = document.querySelector('.time');
   const temp = document.querySelector('.temp');
   const feelsLike = document.querySelector('.feelsLike');
@@ -22,34 +24,45 @@ const getDom = () => {
   const rain1h = document.querySelector('.rain1h');
   const snow1h = document.querySelector('.snow1h');
 
+  // writing to DOM
   const writeWeatherData = async () => {
     try {
-      const recData = await getWeatherAPI('muncie');
+      const recData = await getWeatherAPI(city);
       console.log(recData);
 
       // unit conversion before writing
       const sunriseTime = getHour(recData.sys.sunrise);
       const sunsetTime = getHour(recData.sys.sunset);
+
+      // shows current hour without seconds
+      const nowHour = new Date()
+        .toLocaleTimeString()
+        .replace(/(.*)\D\d+/, '$1');
+
       const timeDate = getDate();
       const windDir = getWindDir(recData.wind.deg);
       const tempRound = recData.main.temp.toFixed(1);
       const feelRound = recData.main.feels_like.toFixed(1);
-      // formatted name
+
+      // joins city and contry
       const formatName = `${recData.name}, ${recData.sys.country}`;
+
       name.textContent = formatName;
-      time.textContent = timeDate;
+      date.textContent = timeDate;
+      time.textContent = nowHour;
       temp.textContent = `Current temperature: ${tempRound} ºC`;
       feelsLike.textContent = `Feels like: ${feelRound} ºC`;
       humidity.textContent = `Humidity: ${recData.main.humidity} %`;
       pressure.textContent = `Pressure: ${recData.main.pressure} hPa`;
       sunrise.textContent = `Sunrise: ${sunriseTime}`;
       sunset.textContent = `Sunset: ${sunsetTime}`;
-      visibility.textContent = `Visibility: ${recData.visibility}`;
+      visibility.textContent = `Visibility: ${recData.visibility / 1000} km`;
       weather.textContent = `Current Weather: ${recData.weather[0].description}`;
       windDeg.textContent = `Wind Direction: ${windDir}`;
       windSpeed.textContent = `Wind Speed: ${recData.wind.speed} m/s`;
       clouds.textContent = `Cloud coverage: ${recData.clouds.all} %`;
 
+      // check if rain and snow data are present
       if (verifyRain(recData)) {
         rain1h.textContent = `Rain volume in the last hour: ${recData.rain['1h']} mm`;
       }

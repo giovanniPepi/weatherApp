@@ -4,4 +4,4 @@ import getDom from './getDom';
 
 // getWeatherAPI('campinas');
 
-getDom();
+getDom('campinas');
