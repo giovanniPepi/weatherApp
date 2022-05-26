@@ -2,6 +2,8 @@ import getWeatherAPI from './getWeatherAPI';
 import getDate from './getDate';
 import getHour from './getHour';
 import getWindDir from './getWindDir';
+import verifyRain from './verifyRain';
+import verifySnow from './verifySnow';
 
 const getDom = () => {
   const name = document.querySelector('.name');
@@ -18,13 +20,11 @@ const getDom = () => {
   const windSpeed = document.querySelector('.windSpeed');
   const clouds = document.querySelector('.clouds');
   const rain1h = document.querySelector('.rain1h');
-  const rain3h = document.querySelector('.rain3h');
   const snow1h = document.querySelector('.snow1h');
-  const snow3h = document.querySelector('.snow3h');
 
   const writeWeatherData = async () => {
     try {
-      const recData = await getWeatherAPI('campinas');
+      const recData = await getWeatherAPI('muncie');
       console.log(recData);
 
       // unit conversion before writing
@@ -49,10 +49,13 @@ const getDom = () => {
       windDeg.textContent = `Wind Direction: ${windDir}`;
       windSpeed.textContent = `Wind Speed: ${recData.wind.speed} m/s`;
       clouds.textContent = `Cloud coverage: ${recData.clouds.all} %`;
-      rain1h.textContent = `Rain volume in the last hour: ${recData.rain['1h']} mm`;
-      rain3h.textContent = `Rain volume in the last 3 hours: ${recData.rain['3h']} mm`;
-      snow1h.textContent = `Snow volume in the last hour: ${recData.snow['1h']} mm`;
-      snow3h.textContent = `Snow volume in the last 3 hours: ${recData.snow['3h']} mm`;
+
+      if (verifyRain(recData)) {
+        rain1h.textContent = `Rain volume in the last hour: ${recData.rain['1h']} mm`;
+      }
+      if (verifySnow(recData)) {
+        snow1h.textContent = `Snow volume in the last hour: ${recData.snow['1h']} mm`;
+      }
     } catch (err) {
       console.log(err);
     }
