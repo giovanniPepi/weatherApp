@@ -70,7 +70,7 @@ const getDom = (lat, lon) => {
         snow1h.textContent = `Snow volume in the last hour: ${recData.snow['1h']} mm`;
       }
     } catch (err) {
-      console.log(err);
+      name.textContent = 'Oooops, there seems to be a network error!';
     }
   };
   writeWeatherData();
