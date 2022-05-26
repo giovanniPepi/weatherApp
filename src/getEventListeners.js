@@ -4,7 +4,6 @@ import getGeoAPI from './getGeoAPI';
 const getEventListeners = () => {
   const search = document.querySelector('#search');
   const searchBtn = document.querySelector('.go');
-  const showResults = document.querySelector('.showResults');
 
   // store searchs
   let resultArray = [];
@@ -42,7 +41,6 @@ const getEventListeners = () => {
   };
 
   searchBtn.addEventListener('click', () => processInpt(search.value));
-  showResults.addEventListener('click', () => console.log(resultArray));
 };
 
 export default getEventListeners;
