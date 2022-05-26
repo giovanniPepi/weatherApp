@@ -1,6 +1,6 @@
-const getTime = (ms) => {
-  const date = new Date(ms);
+const getDate = (ms) => {
+  const date = new Date();
   return date.toDateString();
 };
 
-export default getTime;
+export default getDate;

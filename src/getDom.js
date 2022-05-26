@@ -5,6 +5,7 @@ import getHour from './getHour';
 
 const getDom = () => {
   const name = document.querySelector('.name');
+  const time = document.querySelector('.time');
   const temp = document.querySelector('.temp');
   const feelsLike = document.querySelector('.feelsLike');
   const humidity = document.querySelector('.humidity');
@@ -27,10 +28,12 @@ const getDom = () => {
       const feelTemp = getKelvinToCelsius(recData.main.feels_like);
       const sunriseTime = getHour(recData.sys.sunrise);
       const sunsetTime = getHour(recData.sys.sunset);
+      const timeDate = getDate();
 
       // formatted name
       const formatName = `${recData.name}, ${recData.sys.country}`;
       name.textContent = formatName;
+      time.textContent = timeDate;
       temp.textContent = `Current temperature: ${currTemp} ºC`;
       feelsLike.textContent = `Feels like: ${feelTemp} ºC`;
       humidity.textContent = `Humidity: ${recData.main.humidity} %`;
