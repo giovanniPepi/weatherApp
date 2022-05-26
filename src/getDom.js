@@ -4,6 +4,8 @@ import getHour from './getHour';
 import getWindDir from './getWindDir';
 import verifyRain from './verifyRain';
 import verifySnow from './verifySnow';
+import getNowTime from './getNowTime';
+import convertToKm from './convertToKm';
 
 const getDom = (city) => {
   // queries
@@ -33,12 +35,10 @@ const getDom = (city) => {
       // unit conversion before writing
       const sunriseTime = getHour(recData.sys.sunrise);
       const sunsetTime = getHour(recData.sys.sunset);
+      const windSpeedKm = convertToKm(recData.wind.speed);
 
       // shows current hour without seconds
-      const nowHour = new Date()
-        .toLocaleTimeString()
-        .replace(/(.*)\D\d+/, '$1');
-
+      const nowHour = getNowTime();
       const timeDate = getDate();
       const windDir = getWindDir(recData.wind.deg);
       const tempRound = recData.main.temp.toFixed(1);
@@ -59,7 +59,7 @@ const getDom = (city) => {
       visibility.textContent = `Visibility: ${recData.visibility / 1000} km`;
       weather.textContent = `Current Weather: ${recData.weather[0].description}`;
       windDeg.textContent = `Wind Direction: ${windDir}`;
-      windSpeed.textContent = `Wind Speed: ${recData.wind.speed} m/s`;
+      windSpeed.textContent = `Wind Speed: ${windSpeedKm} km/h`;
       clouds.textContent = `Cloud coverage: ${recData.clouds.all} %`;
 
       // check if rain and snow data are present
