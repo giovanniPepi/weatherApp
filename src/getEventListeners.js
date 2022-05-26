@@ -40,7 +40,14 @@ const getEventListeners = () => {
     }
   };
 
+  // search on enter
+  const processKbdInput = (key) => {
+    if (key === 'Enter') processInpt(search.value);
+    else search.focus();
+  };
+
   searchBtn.addEventListener('click', () => processInpt(search.value));
+  window.addEventListener('keydown', (e) => processKbdInput(e.key));
 };
 
 export default getEventListeners;
