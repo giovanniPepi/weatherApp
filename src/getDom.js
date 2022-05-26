@@ -2,6 +2,7 @@ import getWeatherAPI from './getWeatherAPI';
 import getKelvinToCelsius from './getKelvinToCelsius';
 import getDate from './getDate';
 import getHour from './getHour';
+import getWindDir from './getWindDir';
 
 const getDom = () => {
   const name = document.querySelector('.name');
@@ -29,6 +30,7 @@ const getDom = () => {
       const sunriseTime = getHour(recData.sys.sunrise);
       const sunsetTime = getHour(recData.sys.sunset);
       const timeDate = getDate();
+      const windDir = getWindDir(recData.wind.deg);
 
       // formatted name
       const formatName = `${recData.name}, ${recData.sys.country}`;
@@ -42,7 +44,7 @@ const getDom = () => {
       sunset.textContent = `Sunset: ${sunsetTime}`;
       visibility.textContent = `Visibility: ${recData.visibility}`;
       weather.textContent = `Current Weather: ${recData.weather[0].description}`;
-      windDeg.textContent = `Wind Degree: ${recData.wind.deg}`;
+      windDeg.textContent = `Wind Direction: ${windDir}`;
       windSpeed.textContent = `Wind Speed: ${recData.wind.speed}`;
       clouds.textContent = `Clouds: ${recData.clouds.all}`;
     } catch (err) {
