@@ -1,4 +1,5 @@
 import getWeatherAPI from './getWeatherAPI';
+import getKelvinToCelsius from './getKelvinToCelsius';
 
 const getDom = () => {
   const name = document.querySelector('.name');
@@ -16,28 +17,36 @@ const getDom = () => {
   const windSpeed = document.querySelector('.windSpeed');
   const clouds = document.querySelector('.clouds');
 
-  const writeData = async () => {
-    const recData = await getWeatherAPI('campinas');
+  const writeWeatherData = async () => {
+    try {
+      const recData = await getWeatherAPI('campinas');
+      console.log(recData);
 
-    // formatted name
-    const formatName = `${recData.name}, ${recData.sys.country}`;
-    name.textContent = formatName;
+      // unit conversion before writing
+      const currTemp = getKelvinToCelsius(recData.main.temp);
+      const feelTemp = getKelvinToCelsius(recData.main.feels_like);
 
-    temp.textContent = recData.main.temp;
-    feelsLike.textContent = recData.main.feels_like;
-    humidity.textContent = recData.main.humidity;
-    pressure.textContent = recData.main.pressure;
-    tempMax.textContent = recData.main.temp_max;
-    tempMin.textContent = recData.main.temp_min;
-    sunrise.textContent = recData.sys.sunsrise;
-    sunset.textContent = recData.sys.sunset;
-    visibility.textContent = recData.visibility;
-    weather.textContent = recData.weather.description;
-    windDeg.textContent = recData.wind.deg;
-    windSpeed.textContent = recData.wind.windSpeed;
-    clouds.textContent = recData.clouds.all;
+      // formatted name
+      const formatName = `${recData.name}, ${recData.sys.country}`;
+      name.textContent = formatName;
+      temp.textContent = `Current temperature: ${currTemp} ºC`;
+      feelsLike.textContent = `Feels like: ${feelTemp} ºC`;
+      humidity.textContent = `Humidity: ${recData.main.humidity} %`;
+      pressure.textContent = `Pressure: ${recData.main.pressure} mb`;
+      tempMax.textContent = `Max Temperature: ${maxTempCel} ºC`;
+      tempMin.textContent = `Minimum Temperature: ${minTempCel} ºC`;
+      sunrise.textContent = `Sunrise: ${recData.sys.sunrise}`;
+      sunset.textContent = `Sunset: ${recData.sys.sunset}`;
+      visibility.textContent = `Visibility: ${recData.visibility}`;
+      weather.textContent = `Current Weather: ${recData.weather[0].description}`;
+      windDeg.textContent = `Wind Degree: ${recData.wind.deg}`;
+      windSpeed.textContent = `Wind Speed: ${recData.wind.speed}`;
+      clouds.textContent = `Clouds: ${recData.clouds.all}`;
+    } catch (err) {
+      console.log(err);
+    }
   };
-  writeData();
+  writeWeatherData();
 };
 
 export default getDom;
