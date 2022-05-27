@@ -8,6 +8,7 @@ import getNowTime from './getNowTime';
 import convertToKm from './convertToKm';
 import getNeatDate from './getNeatDate';
 import getFixedNumber from './getFixedNumber';
+import processDailyData from './processDailyData';
 
 const getDom = (lat, lon, loc) => {
   // queries
@@ -75,25 +76,18 @@ const getDom = (lat, lon, loc) => {
       }
 
       // daily forecast in an array
-      const dailyArray = [];
-      dailyArray.push(...recData.daily);
+      const dailyTemps = processDailyData(recData.daily);
 
-      // pushes to a new array only data that we want
-      const dailyTemps = [];
-      dailyArray.forEach((day) =>
-        dailyTemps.push([
-          day.temp.min,
-          day.temp.max,
-          day.uvi,
-          day.pop,
-          day.weather[0].description,
-          getNeatDate(day.dt)
-        ])
-      );
+      // deletes previous values before writing new ones
+      const previousContainer = document.querySelector('.dayContainer');
+      if (previousContainer !== null) {
+        daily.innerHTML = '';
+      }
 
       // write each day forecasted to DOM
       for (const day of dailyTemps) {
         const dayContainer = document.createElement('div');
+        dayContainer.setAttribute('class', 'dayContainer');
 
         const dayDate = document.createElement('div');
         const dayDateValue = day[5];
