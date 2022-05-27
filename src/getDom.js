@@ -54,7 +54,7 @@ const getDom = (lat, lon, loc) => {
       temp.textContent = `Current temperature: ${tempRound} ºC`;
       feelsLike.textContent = `Feels like: ${feelRound} ºC`;
       humidity.textContent = `Humidity: ${recData.current.humidity} %`;
-      uv.textContent = `UV Index: ${recData.current.uvi}`;
+      uv.textContent = `UV Index: ${getFixedNumber(recData.current.uvi, 0)}`;
       pressure.textContent = `Pressure: ${recData.current.pressure} hPa`;
       sunrise.textContent = `Sunrise: ${sunriseTime}`;
       sunset.textContent = `Sunset: ${sunsetTime}`;
