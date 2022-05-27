@@ -7,6 +7,7 @@ import verifySnow from './verifySnow';
 import getNowTime from './getNowTime';
 import convertToKm from './convertToKm';
 import getNeatDate from './getNeatDate';
+import getFixedNumber from './getFixedNumber';
 
 const getDom = (lat, lon, loc) => {
   // queries
@@ -44,8 +45,8 @@ const getDom = (lat, lon, loc) => {
       const nowHour = getNowTime();
       const timeDate = getDate();
       const windDir = getWindDir(recData.current.wind_deg);
-      const tempRound = recData.current.temp.toFixed(1);
-      const feelRound = recData.current.feels_like.toFixed(1);
+      const tempRound = getFixedNumber(recData.current.temp, 1);
+      const feelRound = getFixedNumber(recData.current.feels_like, 1);
 
       name.textContent = loc;
       date.textContent = timeDate;
@@ -99,15 +100,15 @@ const getDom = (lat, lon, loc) => {
         dayDate.textContent = dayDateValue;
 
         const dayMin = document.createElement('div');
-        const dayMinValue = day[0];
+        const dayMinValue = getFixedNumber(day[0], 0);
         dayMin.textContent = dayMinValue;
 
         const dayMax = document.createElement('div');
-        const dayMaxValue = day[1];
+        const dayMaxValue = getFixedNumber(day[1], 0);
         dayMax.textContent = dayMaxValue;
 
         const uviMax = document.createElement('div');
-        const uviMaxValue = day[2];
+        const uviMaxValue = getFixedNumber(day[2], 0);
         uviMax.textContent = uviMaxValue;
 
         const rainProb = document.createElement('div');
@@ -128,7 +129,7 @@ const getDom = (lat, lon, loc) => {
 
         daily.appendChild(dayContainer);
       }
-      //write forecast to DOM
+      // write forecast to DOM
     } catch (err) {
       console.log(err);
       // name.textContent = 'Oooops, there seems to be a network error!';
