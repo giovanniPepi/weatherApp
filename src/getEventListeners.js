@@ -31,7 +31,7 @@ const getEventListeners = () => {
       resultArray.push(geoData0, geoData1);
 
       // calls for rewriting the DOM with new city
-      getDom(`${geoData[0].lat}`, `${geoData[0].lon}`);
+      getDom(`${geoData[0].lat}`, `${geoData[0].lon}`, resultArray[0][0]);
 
       console.log(geoData0);
       console.log(geoData1);

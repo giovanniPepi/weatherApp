@@ -5,26 +5,44 @@
     <title>Weather app</title>
   </head>
   <body>
-    <label for="search">Search a city: </label>
-    <input type="text" id="search" />
-    <button class="go"">Go</button>
-    <div class="name"></div>
-    <div class="date"></div>
-    <div class="time"></div>
-    <div class="weather"></div>
-    <div class="temp"></div>
-    <div class="feelsLike"></div>
-    <div class="humidity"></div>
-    <div class="pressure"></div>
-    <div class="sunrise"></div>
-    <div class="sunset"></div>
-    <div class="visibility"></div>
-    <div class="clouds"></div>
-    <div class="windDeg"></div>
-    <div class="windSpeed"></div>
-    <div class="rain1h"></div>
-    <div class="rain3h"></div>
-    <div class="snow1h"></div>
-    <div class="snow3h"></div>
+    <main class="main">
+      <section class="current">
+        <section class="searchArea">
+          <label for="search">Search a city: </label>
+          <input type="text" id="search" />
+          <button class="go"">Go</button>
+        </section>        
+        <section class="currentWseather">
+          <div class="name"></div>
+          <div class="date"></div>
+          <div class="time"></div>
+          <div class="weather"></div>
+          <div class="temp"></div>
+          <div class="feelsLike"></div>
+          <div class="humidity"></div>
+          <div class="uv"></div>
+          <div class="pressure"></div>
+          <div class="sunrise"></div>
+          <div class="sunset"></div>
+          <div class="visibility"></div>
+          <div class="clouds"></div>
+          <div class="windDeg"></div>
+          <div class="windSpeed"></div>
+          <div class="rain1h"></div>
+          <div class="rain3h"></div>
+          <div class="snow1h"></div>
+          <div class="snow3h"></div>
+        </section>     
+            
+      </section>
+      <section class="forecast">
+          <div class="daily">
+          </div> 
+      </section>
+      </main>
+
+
+
+
   </body>
 </html>
