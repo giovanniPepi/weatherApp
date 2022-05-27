@@ -6,6 +6,7 @@ import verifyRain from './verifyRain';
 import verifySnow from './verifySnow';
 import getNowTime from './getNowTime';
 import convertToKm from './convertToKm';
+import getNeatDate from './getNeatDate';
 
 const getDom = (lat, lon, loc) => {
   // queries
@@ -15,6 +16,7 @@ const getDom = (lat, lon, loc) => {
   const temp = document.querySelector('.temp');
   const feelsLike = document.querySelector('.feelsLike');
   const humidity = document.querySelector('.humidity');
+  const uv = document.querySelector('.uv');
   const pressure = document.querySelector('.pressure');
   const sunrise = document.querySelector('.sunrise');
   const sunset = document.querySelector('.sunset');
@@ -25,6 +27,7 @@ const getDom = (lat, lon, loc) => {
   const clouds = document.querySelector('.clouds');
   const rain1h = document.querySelector('.rain1h');
   const snow1h = document.querySelector('.snow1h');
+  const daily = document.querySelector('.daily');
 
   // writing to DOM
   const writeWeatherData = async () => {
@@ -50,6 +53,7 @@ const getDom = (lat, lon, loc) => {
       temp.textContent = `Current temperature: ${tempRound} ºC`;
       feelsLike.textContent = `Feels like: ${feelRound} ºC`;
       humidity.textContent = `Humidity: ${recData.current.humidity} %`;
+      uv.textContent = `UV Index: ${recData.current.uvi}`;
       pressure.textContent = `Pressure: ${recData.current.pressure} hPa`;
       sunrise.textContent = `Sunrise: ${sunriseTime}`;
       sunset.textContent = `Sunset: ${sunsetTime}`;
@@ -68,6 +72,25 @@ const getDom = (lat, lon, loc) => {
       if (verifySnow(recData)) {
         snow1h.textContent = `Snow volume in the last hour: ${recData.current.snow['1h']} mm`;
       }
+
+      // daily forecast in an array
+      const dailyArray = [];
+      dailyArray.push(...recData.daily);
+      console.log(dailyArray);
+
+      // pushes to a new array only data that we want
+      const dailyTemps = [];
+      dailyArray.forEach((day) =>
+        dailyTemps.push([
+          day.temp.min,
+          day.temp.max,
+          day.uvi,
+          day.pop,
+          day.weather[0].description,
+          getNeatDate(day.dt)
+        ])
+      );
+      console.log(dailyTemps);
     } catch (err) {
       console.log(err);
       // name.textContent = 'Oooops, there seems to be a network error!';
