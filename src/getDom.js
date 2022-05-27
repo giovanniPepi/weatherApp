@@ -76,7 +76,6 @@ const getDom = (lat, lon, loc) => {
       // daily forecast in an array
       const dailyArray = [];
       dailyArray.push(...recData.daily);
-      console.log(dailyArray);
 
       // pushes to a new array only data that we want
       const dailyTemps = [];
@@ -90,7 +89,46 @@ const getDom = (lat, lon, loc) => {
           getNeatDate(day.dt)
         ])
       );
-      console.log(dailyTemps);
+
+      // write each day forecasted to DOM
+      for (const day of dailyTemps) {
+        const dayContainer = document.createElement('div');
+
+        const dayDate = document.createElement('div');
+        const dayDateValue = day[5];
+        dayDate.textContent = dayDateValue;
+
+        const dayMin = document.createElement('div');
+        const dayMinValue = day[0];
+        dayMin.textContent = dayMinValue;
+
+        const dayMax = document.createElement('div');
+        const dayMaxValue = day[1];
+        dayMax.textContent = dayMaxValue;
+
+        const uviMax = document.createElement('div');
+        const uviMaxValue = day[2];
+        uviMax.textContent = uviMaxValue;
+
+        const rainProb = document.createElement('div');
+        const rainProbValue = day[3];
+        rainProb.textContent = rainProbValue;
+
+        const weatherDesc = document.createElement('div');
+        const weatherDescValue = day[4];
+        weatherDesc.textContent = weatherDescValue;
+
+        // appends
+        dayContainer.appendChild(dayDate);
+        dayContainer.appendChild(dayMin);
+        dayContainer.appendChild(dayMax);
+        dayContainer.appendChild(uviMax);
+        dayContainer.appendChild(rainProb);
+        dayContainer.appendChild(weatherDesc);
+
+        daily.appendChild(dayContainer);
+      }
+      //write forecast to DOM
     } catch (err) {
       console.log(err);
       // name.textContent = 'Oooops, there seems to be a network error!';
