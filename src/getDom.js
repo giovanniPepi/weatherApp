@@ -6,7 +6,6 @@ import verifyRain from './verifyRain';
 import verifySnow from './verifySnow';
 import getNowTime from './getNowTime';
 import convertToKm from './convertToKm';
-import getNeatDate from './getNeatDate';
 import getFixedNumber from './getFixedNumber';
 import processDailyData from './processDailyData';
 
@@ -75,7 +74,7 @@ const getDom = (lat, lon, loc) => {
         snow1h.textContent = `Snow volume in the last hour: ${recData.current.snow['1h']} mm`;
       }
 
-      // daily forecast in an array
+      // process daily forecast into a neat Array
       const dailyTemps = processDailyData(recData.daily);
 
       // deletes previous values before writing new ones
@@ -123,7 +122,6 @@ const getDom = (lat, lon, loc) => {
 
         daily.appendChild(dayContainer);
       }
-      // write forecast to DOM
     } catch (err) {
       console.log(err);
       // name.textContent = 'Oooops, there seems to be a network error!';
