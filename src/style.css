@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+}
+:root {
+}
+body * {
+  border: 0.1px solid red;
+}
+button {
+  background: inherit;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.current {
+  display: flex;
+  justify-content: space-around;
+}
+.daily {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, 200px);
+  grid-template-rows: repeat(auto, 1fr);
+}
+.dayContainer {
+  width: 150px;
+}
