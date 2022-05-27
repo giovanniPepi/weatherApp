@@ -16,6 +16,7 @@ button {
   justify-content: space-evenly;
   height: 100%;
 }
+/*Spaces weather infos*/
 .current {
   display: flex;
   justify-content: space-around;
@@ -29,4 +30,18 @@ button {
 }
 .dayContainer {
   width: 150px;
+}
+/* Search area and SVG */
+.leftArea {
+  display: flex;
+  flex-direction: column;
+}
+/* centers SVG */
+.searchArea {
+  display: flex;
+  align-items: center;
+}
+.go {
+  width: 2rem;
+  height: 2rem;
 }

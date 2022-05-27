@@ -8,6 +8,8 @@ import getNowTime from './getNowTime';
 import convertToKm from './convertToKm';
 import getFixedNumber from './getFixedNumber';
 import processDailyData from './processDailyData';
+import getStyle from './getStyle';
+import capitalizeFirst from './capitalizeFirst';
 
 const getDom = (lat, lon, loc) => {
   // queries
@@ -47,7 +49,6 @@ const getDom = (lat, lon, loc) => {
       const windDir = getWindDir(recData.current.wind_deg);
       const tempRound = getFixedNumber(recData.current.temp, 1);
       const feelRound = getFixedNumber(recData.current.feels_like, 1);
-
       name.textContent = loc;
       date.textContent = timeDate;
       time.textContent = nowHour;
@@ -61,7 +62,9 @@ const getDom = (lat, lon, loc) => {
       visibility.textContent = `Visibility: ${
         recData.current.visibility / 1000
       } km`;
-      weather.textContent = `Current Weather: ${recData.current.weather[0].description}`;
+      weather.textContent = capitalizeFirst(
+        recData.current.weather[0].description
+      );
       windDeg.textContent = `Wind Direction: ${windDir}`;
       windSpeed.textContent = `Wind Speed: ${windSpeedKm} km/h`;
       clouds.textContent = `Cloud coverage: ${recData.current.clouds} %`;
@@ -128,6 +131,8 @@ const getDom = (lat, lon, loc) => {
     }
   };
   writeWeatherData();
+  // styling
+  getStyle();
 };
 
 export default getDom;

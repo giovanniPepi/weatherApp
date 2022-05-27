@@ -7,17 +7,20 @@
   <body>
     <main class="main">
         <section class="current">
-          <section class="searchArea">
-            <label for="search">Search a city: </label>
-            <input type="text" id="search" />
-            <button class="go"">Go</button>
-            <div class="name"></div>
-            <div class="date"></div>
-            <div class="time"></div>
-            <div class="weather"></div>           
-            <div class="temp"></div>
-            <div class="feelsLike"></div>
-          </section>        
+          <section class="leftArea">
+            <section class="searchArea">
+              <input type="text" id="search" placeholder="Search location..." />
+              <svg class="go"">Go</svg>
+            </section>
+            <section class="weatherSummary">
+              <div class="name"></div>
+              <div class="date"></div>
+              <div class="time"></div>
+              <div class="weather"></div>           
+              <div class="temp"></div>
+              <div class="feelsLike"></div>                  
+            </section>   
+          </section>
           <section class="currentWeather">
             <div class="humidity"></div>
             <div class="uv"></div>
