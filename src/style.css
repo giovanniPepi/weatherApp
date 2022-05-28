@@ -19,13 +19,12 @@ svg {
 .main {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   height: 100%;
 }
 /*Spaces weather infos*/
 .current {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   padding: var(--sidePaddings);
   gap: var(--middleGap);
