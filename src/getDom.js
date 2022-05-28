@@ -1,4 +1,5 @@
 import getWeatherAPI from './getWeatherAPI';
+import getStyle from './getStyle';
 import getDate from './getDate';
 import getHour from './getHour';
 import getWindDir from './getWindDir';
@@ -47,8 +48,10 @@ const getDom = (lat, lon, loc) => {
       const windSpeedKm = convertToKm(recData.current.wind_speed);
 
       // shows current hour without seconds
-      const nowHour = getNowTime();
+      const nowHour = getNowTime(recData.timezone);
       const timeDate = getDate();
+
+      // main info writing
       const windDir = getWindDir(recData.current.wind_deg);
       const tempRound = getFixedNumber(recData.current.temp, 1);
       const feelRound = getFixedNumber(recData.current.feels_like, 1);
@@ -102,6 +105,11 @@ const getDom = (lat, lon, loc) => {
         daily.innerHTML = '';
       }
 
+      // calls styling(variable icons)
+      console.log(recData.current.weather[0].main);
+      getStyle(recData.current.weather[0].main);
+
+      // forecast
       // write each day forecasted to DOM
       for (const day of dailyTemps) {
         const dayContainer = document.createElement('div');
@@ -147,7 +155,6 @@ const getDom = (lat, lon, loc) => {
     }
   };
   writeWeatherData();
-  // styling
 };
 
 export default getDom;
