@@ -109,15 +109,11 @@ const getDom = (lat, lon, loc) => {
       // forecast
       // process daily forecast into a neat Array
       const dailyTemps = processDailyData(recData.daily);
-      console.log(dailyTemps);
+
       // write each day forecasted to DOM
       for (const day of dailyTemps) {
         const dayContainer = document.createElement('div');
         dayContainer.setAttribute('class', 'dayContainer');
-
-        const dayDate = document.createElement('div');
-        const dayDateValue = day[5];
-        dayDate.textContent = dayDateValue;
 
         const dayMin = document.createElement('div');
         const dayMinValue = getFixedNumber(day[0], 0);
@@ -138,7 +134,21 @@ const getDom = (lat, lon, loc) => {
         const weatherDesc = document.createElement('div');
         const weatherDescValue = day[4];
         weatherDesc.textContent = capitalizeFirst(weatherDescValue);
-        // weatherDesc.innerHTML = setWeatherIcon(recData.daily.weather[0].main);
+
+        const dayDate = document.createElement('div');
+        const dayDateValue = day[5];
+        dayDate.textContent = dayDateValue;
+
+        const weatherIcon = document.createElement('svg');
+        let weatherIconValue = day[6];
+        weatherIconValue = capitalizeFirst(weatherIconValue);
+        // gets SVG for forecasted data
+        weatherIcon.innerHTML = setWeatherIcon(
+          weatherIconValue,
+          recData.timezone,
+          // true because it's a future date
+          true
+        );
 
         // appends
         dayContainer.appendChild(dayDate);
@@ -146,6 +156,7 @@ const getDom = (lat, lon, loc) => {
         dayContainer.appendChild(dayMax);
         dayContainer.appendChild(uviMax);
         dayContainer.appendChild(rainProb);
+        weatherDesc.appendChild(weatherIcon);
         dayContainer.appendChild(weatherDesc);
 
         daily.appendChild(dayContainer);
