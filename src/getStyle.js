@@ -38,7 +38,7 @@ const getStyle = (currentWeather, time) => {
   snowSvg.innerHTML = snowIcon;
 
   // process weather description icon passing through the received array, checks night
-  weatherSvg.innerHTML = setWeatherIcon(currentWeather, time);
+  weatherSvg.innerHTML = setWeatherIcon(currentWeather, time, false);
 };
 
 export default getStyle;

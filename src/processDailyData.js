@@ -10,7 +10,8 @@ const processDailyData = (recArray) => {
       day.uvi,
       day.pop,
       day.weather[0].description,
-      getNeatDate(day.dt)
+      getNeatDate(day.dt),
+      day.weather[0].main
     ])
   );
   return dailyTemps;

@@ -5,8 +5,8 @@ import moonIcon from './img/icons/weather-night.svg';
 import snowIcon from './img/icons/snowflake.svg';
 import getNowTime from './getNowTime';
 
-const setWeatherIcon = (currentWeather, time) => {
-  // convert to hours
+const setWeatherIcon = (weather, time, future) => {
+  // convert to hours to check night
   const timeNow = getNowTime(time).getHours();
 
   // night boolean check
@@ -14,10 +14,11 @@ const setWeatherIcon = (currentWeather, time) => {
   const condition2 = timeNow < 7;
   const night = condition1 || condition2;
 
-  switch (currentWeather) {
+  switch (weather) {
     case 'Clear':
-      if (night) return moonIcon;
-      return clearIcon;
+      // future is used to show icons on forecast
+      if (!night || future) return clearIcon;
+      return moonIcon;
     case 'Rain':
       return rainIcon;
     case 'Clouds':
@@ -25,7 +26,7 @@ const setWeatherIcon = (currentWeather, time) => {
     case 'Snow':
       return snowIcon;
     default:
-      console.log('oooooooooooooooooops');
+      console.log('Different weather detected');
   }
 };
 

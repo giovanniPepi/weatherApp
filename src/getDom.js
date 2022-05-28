@@ -11,6 +11,7 @@ import getFixedNumber from './getFixedNumber';
 import processDailyData from './processDailyData';
 import capitalizeFirst from './capitalizeFirst';
 import verifyAlerts from './verifyAlerts';
+import setWeatherIcon from './setWeatherIcon';
 
 const getDom = (lat, lon, loc) => {
   // queries
@@ -96,19 +97,19 @@ const getDom = (lat, lon, loc) => {
         alerts.textContent = recData.alerts[0].description;
       } else alerts.textContent = '';
 
-      // process daily forecast into a neat Array
-      const dailyTemps = processDailyData(recData.daily);
-
       // deletes previous values before writing new ones
       const previousContainer = document.querySelector('.dayContainer');
       if (previousContainer !== null) {
         daily.innerHTML = '';
       }
 
-      // calls styling(variable icons)
+      // calls styling(variable icons) for current weather
       getStyle(recData.current.weather[0].main, recData.timezone);
 
       // forecast
+      // process daily forecast into a neat Array
+      const dailyTemps = processDailyData(recData.daily);
+      console.log(dailyTemps);
       // write each day forecasted to DOM
       for (const day of dailyTemps) {
         const dayContainer = document.createElement('div');
@@ -137,6 +138,7 @@ const getDom = (lat, lon, loc) => {
         const weatherDesc = document.createElement('div');
         const weatherDescValue = day[4];
         weatherDesc.textContent = capitalizeFirst(weatherDescValue);
+        // weatherDesc.innerHTML = setWeatherIcon(recData.daily.weather[0].main);
 
         // appends
         dayContainer.appendChild(dayDate);
