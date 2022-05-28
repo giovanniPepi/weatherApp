@@ -4,7 +4,7 @@ const getNowTime = (timezone) => {
     new Date().toLocaleString('en-US', { timeZone: `${timezone}` })
   )
     .toString()
-    .slice(0, 21);
+    .slice(16, 21);
 
   return nowHour;
 };
