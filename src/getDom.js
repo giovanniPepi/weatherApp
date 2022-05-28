@@ -135,7 +135,7 @@ const getDom = (lat, lon, loc) => {
 
         const rainContainer = document.createElement('div');
         const rainProb = document.createElement('div');
-        const rainProbValue = day[3];
+        const rainProbValue = `${(day[3] * 100).toFixed(0)} %`;
         rainProb.textContent = rainProbValue;
         const rainSvg = document.createElement('svg');
         rainSvg.setAttribute('class', 'rainPercent');
