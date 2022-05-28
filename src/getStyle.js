@@ -12,6 +12,7 @@ import snowIcon from './img/icons/weather-snowy.svg';
 import maxTempIcon from './img/icons/thermometer-chevron-up.svg';
 import minTempIcon from './img/icons/thermometer-chevron-down.svg';
 import rainPIcon from './img/icons/weather-rainy.svg';
+import thermoIcon from './img/icons/thermometer-high.svg';
 import setWeatherIcon from './setWeatherIcon';
 
 const getStyle = (currentWeather, time) => {
@@ -30,7 +31,9 @@ const getStyle = (currentWeather, time) => {
   const minTempSvg = document.querySelectorAll('.minTempSvg');
   const maxTempSvg = document.querySelectorAll('.maxTempSvg');
   const rainPercent = document.querySelectorAll('.rainPercent');
+  const tempIcon = document.querySelector('.tempIcon');
 
+  tempIcon.innerHTML = thermoIcon;
   goBtn.innerHTML = searchIcon;
   humiditySvg.innerHTML = humidityIcon;
   pressSvg.innerHTML = gaugeIcon;
