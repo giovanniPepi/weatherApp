@@ -113,7 +113,7 @@ const getDom = (lat, lon, loc) => {
 
         const weatherDesc = document.createElement('div');
         const weatherDescValue = day[4];
-        weatherDesc.textContent = weatherDescValue;
+        weatherDesc.textContent = capitalizeFirst(weatherDescValue);
 
         // appends
         dayContainer.appendChild(dayDate);
