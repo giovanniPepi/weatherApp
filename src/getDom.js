@@ -72,7 +72,7 @@ const getDom = (lat, lon, loc) => {
       weather.textContent = capitalizeFirst(
         recData.current.weather[0].description
       );
-      windDeg.textContent = `Wind Direction: ${windDir}`;
+      windDeg.textContent = `Direction: ${windDir}`;
       windSpeed.textContent = `Speed: ${windSpeedKm} km/h`;
       clouds.textContent = `Cloud coverage: ${recData.current.clouds} %`;
 

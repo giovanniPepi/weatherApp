@@ -6,9 +6,9 @@ body {
   --sidePaddings: 2rem;
   --middleGap: 4rem;
 }
-body * {
+/* body * {
   border: 0.1px solid red;
-}
+} */
 button {
   background: inherit;
 }
@@ -32,9 +32,11 @@ svg {
 .daily {
   display: grid;
   align-items: center;
+  justify-items: center;
   justify-content: center;
-  grid-template-columns: repeat(auto-fit, 200px);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, 400px);
+  grid-template-rows: repeat(3, 1fr);
+  padding: 1rem;
 }
 .dayContainer {
   width: 150px;
@@ -61,8 +63,8 @@ svg {
   height: 2rem;
 }
 .dayContainer {
-  width: 10rem;
-  height: 20rem;
+  width: 15rem;
+  height: 15rem;
 }
 
 /* Right side divs */
@@ -71,11 +73,14 @@ svg {
 .dayContainer > * {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 1rem;
 }
 .rain1hCont,
 .snow1hCont,
 .currentSvg {
   display: none;
+}
+.dayContainer > * {
+  font-size: 0.9rem;
 }
