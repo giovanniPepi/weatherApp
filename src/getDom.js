@@ -10,6 +10,7 @@ import getFixedNumber from './getFixedNumber';
 import processDailyData from './processDailyData';
 import getStyle from './getStyle';
 import capitalizeFirst from './capitalizeFirst';
+import verifyAlerts from './verifyAlerts';
 
 const getDom = (lat, lon, loc) => {
   // queries
@@ -31,6 +32,7 @@ const getDom = (lat, lon, loc) => {
   const rain1h = document.querySelector('.rain1h');
   const snow1h = document.querySelector('.snow1h');
   const daily = document.querySelector('.daily');
+  const alerts = document.querySelector('.alerts');
 
   // writing to DOM
   const writeWeatherData = async () => {
@@ -75,6 +77,11 @@ const getDom = (lat, lon, loc) => {
       }
       if (verifySnow(recData.current)) {
         snow1h.textContent = `Snow volume in the last hour: ${recData.current.snow['1h']} mm`;
+      }
+
+      // check for alerts
+      if (verifyAlerts(recData)) {
+        alerts.textContent = recData.alerts[0].description;
       }
 
       // process daily forecast into a neat Array
