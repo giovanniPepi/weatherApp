@@ -70,10 +70,10 @@ const getDom = (lat, lon, loc) => {
       clouds.textContent = `Cloud coverage: ${recData.current.clouds} %`;
 
       // check if rain and snow data are present
-      if (verifyRain(recData)) {
+      if (verifyRain(recData.current)) {
         rain1h.textContent = `Rain volume in the last hour: ${recData.current.rain['1h']} mm`;
       }
-      if (verifySnow(recData)) {
+      if (verifySnow(recData.current)) {
         snow1h.textContent = `Snow volume in the last hour: ${recData.current.snow['1h']} mm`;
       }
 
