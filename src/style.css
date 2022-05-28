@@ -71,6 +71,7 @@ svg {
 }
 
 .rain1hCont,
-.snow1hCont {
+.snow1hCont,
+.currentSvg {
   display: none;
 }

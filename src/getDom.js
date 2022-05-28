@@ -88,10 +88,10 @@ const getDom = (lat, lon, loc) => {
         snow1hCont.style.display = 'none';
       }
 
-      // check for alerts
+      // check for alerts and cleans afterwards
       if (verifyAlerts(recData)) {
         alerts.textContent = recData.alerts[0].description;
-      }
+      } else alerts.textContent = '';
 
       // process daily forecast into a neat Array
       const dailyTemps = processDailyData(recData.daily);
