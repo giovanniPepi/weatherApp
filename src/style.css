@@ -60,6 +60,10 @@ svg {
   width: 2rem;
   height: 2rem;
 }
+.dayContainer {
+  width: 10rem;
+  height: 20rem;
+}
 
 /* Right side divs */
 .currentWeather > *,
@@ -70,7 +74,6 @@ svg {
   justify-content: center;
   gap: 1rem;
 }
-
 .rain1hCont,
 .snow1hCont,
 .currentSvg {
