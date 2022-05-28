@@ -11,7 +11,7 @@ import rainIcon from './img/icons/weather-pouring.svg';
 import snowIcon from './img/icons/weather-snowy.svg';
 import setWeatherIcon from './setWeatherIcon';
 
-const getStyle = (currentWeather) => {
+const getStyle = (currentWeather, time) => {
   const goBtn = document.querySelector('.go');
   const humiditySvg = document.querySelector('.humiditySvg');
   const uvSvg = document.querySelector('.uvSvg');
@@ -37,8 +37,8 @@ const getStyle = (currentWeather) => {
   rainSvg.innerHTML = rainIcon;
   snowSvg.innerHTML = snowIcon;
 
-  // process weather description icon passing through the received array
-  weatherSvg.innerHTML = setWeatherIcon(currentWeather);
+  // process weather description icon passing through the received array, checks night
+  weatherSvg.innerHTML = setWeatherIcon(currentWeather, time);
 };
 
 export default getStyle;

@@ -48,7 +48,7 @@ const getDom = (lat, lon, loc) => {
       const windSpeedKm = convertToKm(recData.current.wind_speed);
 
       // shows current hour without seconds
-      const nowHour = getNowTime(recData.timezone);
+      const nowHour = getNowTime(recData.timezone).toString().slice(16, 21);
       const timeDate = getDate();
 
       // main info writing
@@ -106,8 +106,7 @@ const getDom = (lat, lon, loc) => {
       }
 
       // calls styling(variable icons)
-      console.log(recData.current.weather[0].main);
-      getStyle(recData.current.weather[0].main);
+      getStyle(recData.current.weather[0].main, recData.timezone);
 
       // forecast
       // write each day forecasted to DOM
