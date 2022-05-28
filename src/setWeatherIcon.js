@@ -1,5 +1,5 @@
 import clearIcon from './img/icons/weather-sunny.svg';
-import rainIcon from './img/icons/weather-rainy.svg';
+import rainIcon from './img/icons/weather-pouring.svg';
 import cloudIcon from './img/icons/weather-cloudy.svg';
 import moonIcon from './img/icons/weather-night.svg';
 import snowIcon from './img/icons/snowflake.svg';

@@ -64,7 +64,8 @@ svg {
 
 /* Right side divs */
 .currentWeather > *,
-.weatherSummary > * {
+.weatherSummary > *,
+.dayContainer > * {
   display: flex;
   align-items: center;
   justify-content: center;

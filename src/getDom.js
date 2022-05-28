@@ -103,9 +103,6 @@ const getDom = (lat, lon, loc) => {
         daily.innerHTML = '';
       }
 
-      // calls styling(variable icons) for current weather
-      getStyle(recData.current.weather[0].main, recData.timezone);
-
       // forecast
       // process daily forecast into a neat Array
       const dailyTemps = processDailyData(recData.daily);
@@ -115,30 +112,39 @@ const getDom = (lat, lon, loc) => {
         const dayContainer = document.createElement('div');
         dayContainer.setAttribute('class', 'dayContainer');
 
+        const minContainer = document.createElement('div');
         const dayMin = document.createElement('div');
         const dayMinValue = getFixedNumber(day[0], 0);
         dayMin.textContent = dayMinValue;
+        const minTempSvg = document.createElement('svg');
+        minTempSvg.setAttribute('class', 'minTempSvg');
 
+        const maxContainer = document.createElement('div');
         const dayMax = document.createElement('div');
         const dayMaxValue = getFixedNumber(day[1], 0);
         dayMax.textContent = dayMaxValue;
+        const maxTempSvg = document.createElement('div');
+        maxTempSvg.setAttribute('class', 'maxTempSvg');
 
+        const uviContainer = document.createElement('div');
         const uviMax = document.createElement('div');
         const uviMaxValue = getFixedNumber(day[2], 0);
         uviMax.textContent = uviMaxValue;
+        const uvigSvg = document.createElement('svg');
+        uvigSvg.setAttribute('class', 'uvSvg');
 
+        const rainContainer = document.createElement('div');
         const rainProb = document.createElement('div');
         const rainProbValue = day[3];
         rainProb.textContent = rainProbValue;
+        const rainSvg = document.createElement('svg');
+        rainSvg.setAttribute('class', 'rainPercent');
 
+        const weatherContainer = document.createElement('div');
         const weatherDesc = document.createElement('div');
         const weatherDescValue = day[4];
         weatherDesc.textContent = capitalizeFirst(weatherDescValue);
-
-        const dayDate = document.createElement('div');
-        const dayDateValue = day[5];
-        dayDate.textContent = dayDateValue;
-
+        // icon
         const weatherIcon = document.createElement('svg');
         let weatherIconValue = day[6];
         weatherIconValue = capitalizeFirst(weatherIconValue);
@@ -150,20 +156,37 @@ const getDom = (lat, lon, loc) => {
           true
         );
 
+        const dayDate = document.createElement('div');
+        const dayDateValue = day[5];
+        dayDate.textContent = dayDateValue;
+
         // appends
+        minContainer.appendChild(minTempSvg);
+        minContainer.appendChild(dayMin);
+        maxContainer.appendChild(maxTempSvg);
+        maxContainer.appendChild(dayMax);
+        uviContainer.appendChild(uvigSvg);
+        uviContainer.appendChild(uviMax);
+        rainContainer.appendChild(rainSvg);
+        rainContainer.appendChild(rainProb);
+        weatherContainer.appendChild(weatherIcon);
+        weatherContainer.appendChild(weatherDesc);
+
         dayContainer.appendChild(dayDate);
-        dayContainer.appendChild(dayMin);
-        dayContainer.appendChild(dayMax);
-        dayContainer.appendChild(uviMax);
-        dayContainer.appendChild(rainProb);
-        weatherDesc.appendChild(weatherIcon);
-        dayContainer.appendChild(weatherDesc);
+        dayContainer.appendChild(minContainer);
+        dayContainer.appendChild(maxContainer);
+        dayContainer.appendChild(uviContainer);
+        dayContainer.appendChild(rainContainer);
+        dayContainer.appendChild(weatherContainer);
 
         daily.appendChild(dayContainer);
       }
+
+      // calls styling(variable icons)
+      getStyle(recData.current.weather[0].main, recData.timezone);
     } catch (err) {
       console.log(err);
-      // name.textContent = 'Oooops, there seems to be a network error!';
+      name.textContent = 'Oooops, there seems to be a network error!';
     }
   };
   writeWeatherData();

@@ -9,12 +9,14 @@ import cloudIcon from './img/icons/cloud-percent.svg';
 import windIcon from './img/icons/weather-windy.svg';
 import rainIcon from './img/icons/weather-pouring.svg';
 import snowIcon from './img/icons/weather-snowy.svg';
+import maxTempIcon from './img/icons/thermometer-chevron-up.svg';
+import minTempIcon from './img/icons/thermometer-chevron-down.svg';
+import rainPIcon from './img/icons/weather-rainy.svg';
 import setWeatherIcon from './setWeatherIcon';
 
 const getStyle = (currentWeather, time) => {
   const goBtn = document.querySelector('.go');
   const humiditySvg = document.querySelector('.humiditySvg');
-  const uvSvg = document.querySelector('.uvSvg');
   const pressSvg = document.querySelector('.pressSvg');
   const sunriseSvg = document.querySelector('.sunriseSvg');
   const sunsetSvg = document.querySelector('.sunsetSvg');
@@ -24,10 +26,13 @@ const getStyle = (currentWeather, time) => {
   const rainSvg = document.querySelector('.rainSvg');
   const snowSvg = document.querySelector('.snowSvg');
   const weatherSvg = document.querySelector('.weatherSvg');
+  const uvSvg = document.querySelectorAll('.uvSvg');
+  const minTempSvg = document.querySelectorAll('.minTempSvg');
+  const maxTempSvg = document.querySelectorAll('.maxTempSvg');
+  const rainPercent = document.querySelectorAll('.rainPercent');
 
   goBtn.innerHTML = searchIcon;
   humiditySvg.innerHTML = humidityIcon;
-  uvSvg.innerHTML = uvIcon;
   pressSvg.innerHTML = gaugeIcon;
   sunriseSvg.innerHTML = sunriseIcon;
   sunsetSvg.innerHTML = sunsetIcon;
@@ -36,6 +41,20 @@ const getStyle = (currentWeather, time) => {
   windSvg.innerHTML = windIcon;
   rainSvg.innerHTML = rainIcon;
   snowSvg.innerHTML = snowIcon;
+
+  // shared icons with forecast
+  uvSvg.forEach((e) => {
+    e.innerHTML = uvIcon;
+  });
+  minTempSvg.forEach((e) => {
+    e.innerHTML = minTempIcon;
+  });
+  maxTempSvg.forEach((e) => {
+    e.innerHTML = maxTempIcon;
+  });
+  rainPercent.forEach((e) => {
+    e.innerHTML = rainPIcon;
+  });
 
   // process weather description icon passing through the received array, checks night
   weatherSvg.innerHTML = setWeatherIcon(currentWeather, time, false);
