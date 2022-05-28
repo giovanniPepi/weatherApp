@@ -22,19 +22,13 @@ const getEventListeners = () => {
       geoData0.push(`${geoData[0].lat}`);
       geoData0.push(`${geoData[0].lon}`);
 
-      const geoData1 = [];
-      geoData1.push(`${geoData[1].name}, ${geoData[1].country}`);
-      geoData1.push(`${geoData[1].lat}`);
-      geoData1.push(`${geoData[1].lon}`);
-
       // store for future use
-      resultArray.push(geoData0, geoData1);
+      resultArray.push(geoData0);
 
       // calls for rewriting the DOM with new city
       getDom(`${geoData[0].lat}`, `${geoData[0].lon}`, resultArray[0][0]);
 
       console.log(geoData0);
-      console.log(geoData1);
     } catch (err) {
       console.log(err);
     }
