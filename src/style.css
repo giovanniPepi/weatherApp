@@ -3,12 +3,18 @@ body {
   height: 100vh;
 }
 :root {
+  --sidePaddings: 2rem;
+  --middleGap: 4rem;
 }
 body * {
   border: 0.1px solid red;
 }
 button {
   background: inherit;
+}
+svg {
+  width: 2rem;
+  height: 2rem;
 }
 .main {
   display: flex;
@@ -20,6 +26,9 @@ button {
 .current {
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  padding: var(--sidePaddings);
+  gap: var(--middleGap);
 }
 .daily {
   display: grid;
@@ -35,6 +44,13 @@ button {
 .leftArea {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 60vw;
+}
+.weatherSummary {
+  display: flex;
+  flex-direction: column;
 }
 /* centers SVG */
 .searchArea {
@@ -44,4 +60,12 @@ button {
 .go {
   width: 2rem;
   height: 2rem;
+}
+
+/* Right side divs */
+.currentWeather > * {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
