@@ -69,3 +69,8 @@ svg {
   justify-content: center;
   gap: 1rem;
 }
+
+.rain1hCont,
+.snow1hCont {
+  display: none;
+}

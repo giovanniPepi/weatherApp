@@ -8,7 +8,6 @@ import getNowTime from './getNowTime';
 import convertToKm from './convertToKm';
 import getFixedNumber from './getFixedNumber';
 import processDailyData from './processDailyData';
-import getStyle from './getStyle';
 import capitalizeFirst from './capitalizeFirst';
 import verifyAlerts from './verifyAlerts';
 
@@ -30,7 +29,9 @@ const getDom = (lat, lon, loc) => {
   const windSpeed = document.querySelector('.windSpeed');
   const clouds = document.querySelector('.clouds');
   const rain1h = document.querySelector('.rain1h');
+  const rain1hCont = document.querySelector('.rain1hCont');
   const snow1h = document.querySelector('.snow1h');
+  const snow1hCont = document.querySelector('.snow1hCont');
   const daily = document.querySelector('.daily');
   const alerts = document.querySelector('.alerts');
 
@@ -68,15 +69,17 @@ const getDom = (lat, lon, loc) => {
         recData.current.weather[0].description
       );
       windDeg.textContent = `Wind Direction: ${windDir}`;
-      windSpeed.textContent = `Wind Speed: ${windSpeedKm} km/h`;
+      windSpeed.textContent = `Speed: ${windSpeedKm} km/h`;
       clouds.textContent = `Cloud coverage: ${recData.current.clouds} %`;
 
-      // check if rain and snow data are present
+      // check if rain and snow data are present and shows it
       if (verifyRain(recData.current)) {
         rain1h.textContent = `Rain volume in the last hour: ${recData.current.rain['1h']} mm`;
+        rain1hCont.style.display = 'flex';
       }
       if (verifySnow(recData.current)) {
         snow1h.textContent = `Snow volume in the last hour: ${recData.current.snow['1h']} mm`;
+        snow1hCont.style.display = 'flex';
       }
 
       // check for alerts
@@ -139,7 +142,6 @@ const getDom = (lat, lon, loc) => {
   };
   writeWeatherData();
   // styling
-  getStyle();
 };
 
 export default getDom;
