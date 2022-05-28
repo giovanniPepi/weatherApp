@@ -76,10 +76,16 @@ const getDom = (lat, lon, loc) => {
       if (verifyRain(recData.current)) {
         rain1h.textContent = `Rain volume in the last hour: ${recData.current.rain['1h']} mm`;
         rain1hCont.style.display = 'flex';
+      } else {
+        rain1h.textContent = '';
+        rain1hCont.style.display = 'none';
       }
       if (verifySnow(recData.current)) {
         snow1h.textContent = `Snow volume in the last hour: ${recData.current.snow['1h']} mm`;
         snow1hCont.style.display = 'flex';
+      } else {
+        snow1h.textContent = '';
+        snow1hCont.style.display = 'none';
       }
 
       // check for alerts
