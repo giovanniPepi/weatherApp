@@ -44,8 +44,16 @@ const getDom = (lat, lon, loc) => {
       console.log(recData);
 
       // unit conversion before writing
-      const sunriseTime = getHour(recData.current.sunrise);
-      const sunsetTime = getHour(recData.current.sunset);
+      // slices out seconds, keep am/PM
+      const sunriseTime = `${getHour(recData.current.sunrise).slice(
+        0,
+        4
+      )} ${getHour(recData.current.sunrise).slice(7, 10)}`;
+
+      const sunsetTime = `${getHour(recData.current.sunset).slice(
+        0,
+        4
+      )} ${getHour(recData.current.sunset).slice(7, 10)}`;
       const windSpeedKm = convertToKm(recData.current.wind_speed);
 
       // shows current hour without seconds
