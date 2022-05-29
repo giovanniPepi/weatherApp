@@ -77,6 +77,12 @@ svg {
   width: 2rem;
   height: 2rem;
 }
+/* targets forecast SVGs */
+.dayDate ~ div > svg > svg,
+.maxTempSvg > svg {
+  width: 1.5rem;
+}
+
 /* Right side divs */
 .currentWeather > *,
 .weatherSummary > *,
@@ -160,7 +166,7 @@ svg {
 /* trick to appear centralized */
 .minTempSvg,
 .maxTempSvg {
-  margin-left: 0.4rem;
+  margin-left: 0.3rem;
 }
 
 /* wind adjusts */
