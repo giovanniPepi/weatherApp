@@ -1,3 +1,22 @@
+@font-face {
+  font-family: 'Raleway';
+  src: url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
+  font-weight: 500;
+  font-style: medium;
+}
+@font-face {
+  font-family: 'Raleway';
+  src: url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
+  font-weight: 600;
+  font-style: semibold;
+}
+@font-face {
+  font-family: 'Raleway';
+  src: url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
+  font-weight: 700;
+  font-style: bold;
+}
+
 body {
   margin: 0;
   height: 100vh;
@@ -7,6 +26,8 @@ body {
   --middleGap: 4rem;
   /* tries to adapt to screen sizes*/
   --fontSize: calc(0.5rem + 0.2vw + 0.5vh);
+  --fontSizeSemiHighlight: 1.2rem;
+  --fontSizeHightlight: 2.5rem;
 }
 body * {
   border: 0.1px solid red;
@@ -24,11 +45,14 @@ svg {
   flex-direction: column;
   height: 100%;
   font-size: var(--fontSize);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+  font-style: medium;
 }
 /*Spaces weather infos*/
 .current {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   padding: var(--sidePaddings);
   gap: var(--middleGap);
@@ -43,16 +67,9 @@ svg {
   padding: 1rem;
 }
 .dayContainer {
-  width: 150px;
+  width: 100px;
 }
-/* Search area and SVG */
-.leftArea {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: space-between;
-  max-width: 60vw;
-}
+/*  SVG */
 /* centers SVG */
 .searchArea {
   display: flex;
@@ -83,6 +100,41 @@ svg {
   display: none;
 }
 
+/*Current weather/search area */
+/* limits growth when alerts are present */
+.highlight,
+.alerts {
+  width: 25vw;
+  max-width: 25vw;
+}
+.leftArea {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-between;
+}
+.weatherCont,
+.tempContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  font-size: var(--fontSizeHightlight);
+}
 #search {
-  width: 3rem;
+  width: 5rem;
+}
+.name {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: var(--fontSizeSemiHighlight);
+}
+.date {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: var(--fontSizeSemiHighlight);
+}
+.feelsLike {
+  font-style: italic;
+  font-size: 0.9rem;
 }
