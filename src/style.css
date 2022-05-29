@@ -164,3 +164,12 @@ svg {
 .maxTempSvg {
   margin-left: 0.4rem;
 }
+
+/* wind adjusts */
+.windData {
+  display: flex;
+  flex-direction: column;
+}
+.windSpeed {
+  align-self: flex-end;
+}
