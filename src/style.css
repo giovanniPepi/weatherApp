@@ -5,21 +5,25 @@ body {
 :root {
   --sidePaddings: 2rem;
   --middleGap: 4rem;
+  /* tries to adapt to screen sizes*/
+  --fontSize: calc(0.5rem + 0.2vw + 0.5vh);
 }
-/* body * {
+body * {
   border: 0.1px solid red;
-} */
+}
 button {
   background: inherit;
 }
 svg {
   width: 2rem;
   height: 2rem;
+  fill: rgb(110, 35, 223);
 }
 .main {
   display: flex;
   flex-direction: column;
   height: 100%;
+  font-size: var(--fontSize);
 }
 /*Spaces weather infos*/
 .current {
@@ -46,12 +50,8 @@ svg {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: space-between;
   max-width: 60vw;
-}
-.weatherSummary {
-  display: flex;
-  flex-direction: column;
 }
 /* centers SVG */
 .searchArea {
@@ -70,7 +70,8 @@ svg {
 /* Right side divs */
 .currentWeather > *,
 .weatherSummary > *,
-.dayContainer > * {
+.dayContainer > *,
+.leftArea > * {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -81,6 +82,7 @@ svg {
 .currentSvg {
   display: none;
 }
-.dayContainer > * {
-  font-size: 0.9rem;
+
+#search {
+  width: 3rem;
 }
