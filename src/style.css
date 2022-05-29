@@ -16,7 +16,6 @@
   font-weight: 700;
   font-style: bold;
 }
-
 body {
   margin: 0;
   height: 100vh;
@@ -29,9 +28,9 @@ body {
   --fontSizeSemiHighlight: 1.2rem;
   --fontSizeHightlight: 2.5rem;
 }
-body * {
+/* body * {
   border: 0.1px solid red;
-}
+} */
 button {
   background: inherit;
 }
@@ -67,7 +66,9 @@ svg {
   padding: 1rem;
 }
 .dayContainer {
-  width: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 /*  SVG */
 /* centers SVG */
@@ -102,16 +103,26 @@ svg {
 
 /*Current weather/search area */
 /* limits growth when alerts are present */
+.hightlight {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
 .highlight,
 .alerts {
-  width: 25vw;
-  max-width: 25vw;
+  width: 15vw;
+  max-width: 20vw;
+}
+.currentWeather {
+  width: 13vw;
+  min-width: 13rem;
 }
 .leftArea {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: space-between;
+  width: 10rem;
 }
 .weatherCont,
 .tempContainer {
@@ -122,7 +133,7 @@ svg {
   font-size: var(--fontSizeHightlight);
 }
 #search {
-  width: 5rem;
+  width: 7rem;
 }
 .name {
   font-family: 'Raleway', sans-serif;
@@ -137,4 +148,15 @@ svg {
 .feelsLike {
   font-style: italic;
   font-size: 0.9rem;
+}
+
+/*daily forecast */
+.dayDate {
+  align-self: center;
+}
+
+/* trick to appear centralized */
+.minTempSvg,
+.maxTempSvg {
+  margin-left: 0.4rem;
 }

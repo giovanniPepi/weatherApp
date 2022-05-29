@@ -165,6 +165,7 @@ const getDom = (lat, lon, loc, country) => {
         );
 
         const dayDate = document.createElement('div');
+        dayDate.setAttribute('class', 'dayDate');
         const dayDateValue = day[5];
         dayDate.textContent = dayDateValue;
 
