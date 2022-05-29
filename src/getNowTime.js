@@ -1,6 +1,8 @@
 // strips seconds from localeTime
-const getNowTime = () => {
-  const nowHour = new Date().toLocaleTimeString().replace(/(.*)\D\d+/, '$1');
+const getNowTime = (timezone) => {
+  const nowHour = new Date(
+    new Date().toLocaleString('en-US', { timeZone: `${timezone}` })
+  );
   return nowHour;
 };
 export default getNowTime;

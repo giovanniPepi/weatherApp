@@ -1,0 +1,175 @@
+@font-face {
+  font-family: 'Raleway';
+  src: url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
+  font-weight: 500;
+  font-style: medium;
+}
+@font-face {
+  font-family: 'Raleway';
+  src: url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
+  font-weight: 600;
+  font-style: semibold;
+}
+@font-face {
+  font-family: 'Raleway';
+  src: url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
+  font-weight: 700;
+  font-style: bold;
+}
+body {
+  margin: 0;
+  height: 100vh;
+}
+:root {
+  --sidePaddings: 1.5rem;
+  --middleGap: 4rem;
+  /* tries to adapt to screen sizes*/
+  --fontSize: calc(0.5rem + 0.2vw + 0.5vh);
+  --fontSizeSemiHighlight: 1.2rem;
+  --fontSizeHightlight: 2.5rem;
+}
+/* body * {
+  border: 0.1px solid red;
+} */
+button {
+  background: inherit;
+}
+svg {
+  width: 2rem;
+  height: 2rem;
+  fill: rgb(110, 35, 223);
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  font-size: var(--fontSize);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+  font-style: medium;
+}
+/*Spaces weather infos*/
+.current {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: var(--sidePaddings);
+}
+.daily {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, 350px);
+  grid-template-rows: repeat(3, 1fr);
+  padding: 1rem;
+  gap: 3rem;
+}
+.dayContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 14rem;
+  height: 13rem;
+}
+/*  SVG */
+/* targets forecast SVGs */
+.dayDate ~ div > svg > svg,
+.maxTempSvg > svg {
+  width: 1.7rem;
+}
+
+/* Right side divs */
+.currentWeather > *,
+.weatherSummary > *,
+.dayContainer > *,
+.searchContainer > * {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.rain1hCont,
+.snow1hCont,
+.currentSvg {
+  display: none;
+}
+
+/*Current weather/search area */
+/* limits growth when alerts are present */
+.highlight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.7rem;
+}
+.alerts {
+  max-width: 14vw;
+}
+.currentWeather {
+  width: 13vw;
+  min-width: 13rem;
+}
+.searchContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+.searchArea {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+#search {
+  all: unset;
+  padding: 0.3rem;
+  height: 1.2rem;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+}
+.weatherCont,
+.tempContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  font-size: var(--fontSizeHightlight);
+}
+.name {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: var(--fontSizeSemiHighlight);
+}
+.date {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: var(--fontSizeSemiHighlight);
+}
+.feelsLike {
+  font-style: italic;
+  font-size: 0.9rem;
+}
+/*Limit alerts font */
+.alerts {
+  font-size: 0.9rem;
+}
+/*daily forecast */
+.dayDate {
+  align-self: center;
+}
+/* trick to appear centralized */
+.minTempSvg,
+.maxTempSvg {
+  margin-left: 0.25rem;
+}
+
+/* wind adjusts */
+.windData {
+  display: flex;
+  flex-direction: column;
+}
+.windSpeed {
+  align-self: flex-end;
+}
