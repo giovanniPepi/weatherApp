@@ -13,7 +13,7 @@ import capitalizeFirst from './capitalizeFirst';
 import verifyAlerts from './verifyAlerts';
 import setWeatherIcon from './setWeatherIcon';
 
-const getDom = (lat, lon, loc) => {
+const getDom = (lat, lon, loc, country) => {
   // queries
   const name = document.querySelector('.name');
   const date = document.querySelector('.date');
@@ -40,8 +40,8 @@ const getDom = (lat, lon, loc) => {
   // writing to DOM
   const writeWeatherData = async () => {
     try {
-      const recData = await getWeatherAPI(lat, lon);
-      console.log(recData);
+      const recData = await getWeatherAPI(lat, lon, country);
+      console.log('Onecall API: ', recData);
 
       // unit conversion before writing
       // slices out seconds, keep am/PM

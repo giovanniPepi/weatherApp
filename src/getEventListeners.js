@@ -14,19 +14,25 @@ const getEventListeners = () => {
       // clean stored
       resultArray = [];
       const geoData = await getGeoAPI(value);
-      console.log(geoData);
+      console.log('Geo data API: ', geoData);
 
       // generates a new array with concat name and coords
       const geoData0 = [];
       geoData0.push(`${geoData[0].name}, ${geoData[0].country}`);
       geoData0.push(`${geoData[0].lat}`);
       geoData0.push(`${geoData[0].lon}`);
+      geoData0.push(`${geoData[0].country}`);
 
       // store for future use
       resultArray.push(geoData0);
 
-      // calls for rewriting the DOM with new city
-      getDom(`${geoData[0].lat}`, `${geoData[0].lon}`, resultArray[0][0]);
+      // calls for rewriting the DOM with new city, passes country to select language
+      getDom(
+        `${geoData[0].lat}`,
+        `${geoData[0].lon}`,
+        resultArray[0][0],
+        `${geoData[0].country}`
+      );
 
       console.log(geoData0);
     } catch (err) {
