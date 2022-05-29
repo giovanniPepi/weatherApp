@@ -73,14 +73,10 @@ svg {
   height: 13rem;
 }
 /*  SVG */
-.go {
-  width: 2rem;
-  height: 2rem;
-}
 /* targets forecast SVGs */
 .dayDate ~ div > svg > svg,
 .maxTempSvg > svg {
-  width: 1.5rem;
+  width: 1.7rem;
 }
 
 /* Right side divs */
@@ -166,7 +162,7 @@ svg {
 /* trick to appear centralized */
 .minTempSvg,
 .maxTempSvg {
-  margin-left: 0.3rem;
+  margin-left: 0.25rem;
 }
 
 /* wind adjusts */
