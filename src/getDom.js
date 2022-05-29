@@ -123,21 +123,21 @@ const getDom = (lat, lon, loc, country) => {
         const minContainer = document.createElement('div');
         const dayMin = document.createElement('div');
         const dayMinValue = getFixedNumber(day[0], 0);
-        dayMin.textContent = dayMinValue;
+        dayMin.textContent = `${dayMinValue} ºC`;
         const minTempSvg = document.createElement('svg');
         minTempSvg.setAttribute('class', 'minTempSvg');
 
         const maxContainer = document.createElement('div');
         const dayMax = document.createElement('div');
         const dayMaxValue = getFixedNumber(day[1], 0);
-        dayMax.textContent = dayMaxValue;
+        dayMax.textContent = `${dayMaxValue} ºC`;
         const maxTempSvg = document.createElement('div');
         maxTempSvg.setAttribute('class', 'maxTempSvg');
 
         const uviContainer = document.createElement('div');
         const uviMax = document.createElement('div');
         const uviMaxValue = getFixedNumber(day[2], 0);
-        uviMax.textContent = uviMaxValue;
+        uviMax.textContent = `UV ${uviMaxValue}`;
         const uvigSvg = document.createElement('svg');
         uvigSvg.setAttribute('class', 'uvSvg');
 
@@ -182,11 +182,11 @@ const getDom = (lat, lon, loc, country) => {
         weatherContainer.appendChild(weatherDesc);
 
         dayContainer.appendChild(dayDate);
+        dayContainer.appendChild(weatherContainer);
         dayContainer.appendChild(minContainer);
         dayContainer.appendChild(maxContainer);
         dayContainer.appendChild(uviContainer);
         dayContainer.appendChild(rainContainer);
-        dayContainer.appendChild(weatherContainer);
 
         daily.appendChild(dayContainer);
       }

@@ -63,22 +63,20 @@ svg {
   grid-template-columns: repeat(auto-fit, 400px);
   grid-template-rows: repeat(3, 1fr);
   padding: 1rem;
+  gap: 3rem;
 }
 .dayContainer {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  width: 14rem;
+  height: 13rem;
 }
 /*  SVG */
 .go {
   width: 2rem;
   height: 2rem;
 }
-.dayContainer {
-  width: 15rem;
-  height: 15rem;
-}
-
 /* Right side divs */
 .currentWeather > *,
 .weatherSummary > *,
