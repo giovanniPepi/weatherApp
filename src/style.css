@@ -24,9 +24,9 @@ body {
   --sidePaddings: 1.5rem;
   --middleGap: 4rem;
   /* tries to adapt to screen sizes*/
-  --fontSize: calc(0.5rem + 0.2vw + 0.5vh);
-  --fontSizeSemiHighlight: 1.2rem;
-  --fontSizeHightlight: 2.5rem;
+  --fontSize: calc(0.5rem + 0.2vw + 0.8vh);
+  --fontSizeSemiHighlight: 1.3rem;
+  --fontSizeHightlight: 3rem;
 }
 /* body * {
   border: 0.1px solid red;
@@ -108,8 +108,8 @@ svg {
   max-width: 14vw;
 }
 .currentWeather {
-  width: 13vw;
-  min-width: 13rem;
+  width: 21vw;
+  min-width: 21rem;
 }
 .searchContainer {
   display: flex;
