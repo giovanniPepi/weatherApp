@@ -73,8 +73,8 @@ svg {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  width: 14rem;
-  height: 13rem;
+  width: 20rem;
+  height: 17rem;
   padding: 1rem;
 }
 /*  SVG */
@@ -184,7 +184,7 @@ svg {
 main > section > section,
 .dayContainer {
   border-radius: 1rem;
-  padding: 3rem;
+  padding: 2rem;
 }
 
 .teste {
