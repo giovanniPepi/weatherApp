@@ -170,8 +170,8 @@ const getDom = (lat, lon, loc, country) => {
         // appends
         tempContainer.appendChild(minTempSvg);
         tempContainer.appendChild(dayMin);
-        tempContainer2.appendChild(maxTempSvg);
-        tempContainer2.appendChild(dayMax);
+        tempContainer.appendChild(maxTempSvg);
+        tempContainer.appendChild(dayMax);
         uvRainContainer.appendChild(uvigSvg);
         uvRainContainer.appendChild(uviMax);
         uvRainContainer.appendChild(rainSvg);

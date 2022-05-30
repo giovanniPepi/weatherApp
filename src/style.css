@@ -34,9 +34,9 @@ body {
   --sidePaddings: 1.5rem;
   --middleGap: 4rem;
   /* tries to adapt to screen sizes*/
-  --fontSize: calc(0.5rem + 0.2vw + 0.8vh);
-  --fontSizeSemiHighlight: 1.4rem;
-  --fontSizeHightlight: 3rem;
+  --fontSize: calc(0.5rem + 0.2vw + 1vh);
+  --fontSizeSemiHighlight: 2.2rem;
+  --fontSizeHighlight: 3rem;
   --containerRadius: 1rem;
 }
 /* body * {
@@ -58,25 +58,26 @@ svg {
   font-family: 'Raleway', sans-serif;
   font-weight: 500;
   font-style: medium;
+  padding: 1rem;
 }
 /*Spaces weather infos*/
 .current {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   padding: var(--sidePaddings);
   gap: 1rem;
-  min-height: 33vh;
+  min-height: 30vh;
 }
 .daily {
   display: grid;
   align-items: center;
   justify-items: center;
   justify-content: center;
-  grid-template-columns: repeat(auto-fit, 350px);
+  grid-template-columns: repeat(auto-fit, clamp(350px, 400px, 40vw));
   grid-template-rows: repeat(auto, 1fr);
   padding: 1rem;
-  gap: 2rem;
+  gap: 1rem;
 }
 .dayContainer {
   display: flex;
@@ -120,9 +121,10 @@ svg {
   display: flex;
   flex-direction: column;
   align-content: space-between;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 0.7rem;
   min-width: 30vw;
+  min-height: 30vh;
 }
 /* centers itself despite of other flex settings */
 .feelsLike,
@@ -131,20 +133,18 @@ svg {
 .time {
   align-self: center;
 }
-
 .alerts {
-  max-width: 14vw;
-  padding: 0.5rem;
+  padding: 1rem;
   border-radius: var(--containerRadius);
 }
 .currentWeather {
-  width: 21vw;
-  min-width: 21rem;
+  min-width: 30vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: space-between;
   gap: 0.5rem;
+  min-height: 30vh;
 }
 .searchContainer {
   display: flex;
@@ -167,37 +167,28 @@ svg {
   border-radius: 0.5rem;
 }
 .weatherCont,
-.tempContainer,
-.humidityCont,
-.uvCont {
+.tempContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem;
-  font-size: var(--fontSizeHightlight);
-}
-/* revert to original font size */
-.humidityCont,
-.uvCont {
-  font-size: inherit;
+  font-size: var(--fontSizeSemiHighlight);
 }
 .name {
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
-  font-size: var(--fontSizeSemiHighlight);
+  font-size: var(--fontSizeHighlight);
 }
 .date {
   font-family: 'Raleway', sans-serif;
   font-weight: 600;
-  font-size: var(--fontSizeSemiHighlight);
+  font-size: var(--fontSizeHighlight);
 }
 .feelsLike {
   font-style: italic;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 /*Limit alerts font */
 .alerts {
-  font-size: 0.9rem;
 }
 /*daily forecast */
 .dayDate {

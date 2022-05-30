@@ -2,13 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, user-scalable=no">
-    <title>Weather app</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+  <title>Weather app</title>
   </head>
   <body>
     <main class="main">
         <section class="current">
           <section class="highlight">
+          <div class="name"></div>
+          <div class="date"></div>
+          <div class="time"></div>
             <div class="weatherCont">
               <svg class="weatherSvg"></svg>
               <div class="weather"></div>
@@ -18,21 +21,17 @@
               <div class="temp"></div>
           </div>
           <div class="feelsLike"></div>
-          <div class="name"></div>
-          <div class="date"></div>
-          <div class="time"></div>      
-          <div class="humidityCont">
+      
+          </section>
+          <section class="currentWeather">
+            <div class="humidityCont">
               <svg class="humiditySvg"></svg>
-              <div class="humidity"></div>              
+            <div class="humidity"></div>              
           </div>
             <div class="uvCont">
               <svg class="uvSvg"></svg>
-              <div class="uv"></div>   
+            <div class="uv"></div>   
             </div>
-          </section>
-          <div class="alerts"></div>
-          <section class="currentWeather">
-
             <div class="pressureCont">
               <svg class="pressSvg"></svg>
               <div class="pressure"></div>   
@@ -70,12 +69,14 @@
             </div>
           </section>
         </section>  
+        <section class="alerts"></section>
         <section class="searchContainer">
             <div class="searchArea">
             <input type="text" id="search" placeholder="Search location..." />
             <svg class="go""></svg>
             </div>
         </section>   
+
       <section class="daily">
       </section>
       </main>
