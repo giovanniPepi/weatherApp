@@ -40,8 +40,8 @@ body {
   --fontSizeSemiHighlightMobile: 1.2rem;
   --fontSizeHighlightMobile: 1.8rem;
   --containerRadius: 1rem;
-  --topSectionsWidth: 20vw;
-  --topSectionsHeight: 38vh;
+  --topSectionsWidth: 15vw;
+  --topSectionsHeight: 60vh;
   --topSectionsWidthMobile: 35vw;
   --topSectionsHeightMobile: 50vh;
 }
@@ -260,6 +260,7 @@ svg {
   padding: 0.4rem;
   height: 1.3rem;
   border-radius: 0.5rem;
+  width: 95%;
 }
 /*daily forecast */
 .dayDate {

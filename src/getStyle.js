@@ -19,7 +19,6 @@ import setBackground from './setBackground';
 const getStyle = (currentWeather, time, hasAlerts) => {
   const goBtn = document.querySelector('.go');
   const humiditySvg = document.querySelector('.humiditySvg');
-  const pressSvg = document.querySelector('.pressSvg');
   const sunriseSvg = document.querySelector('.sunriseSvg');
   const sunsetSvg = document.querySelector('.sunsetSvg');
   const visibilitySvg = document.querySelector('.visibilitySvg');
@@ -38,7 +37,6 @@ const getStyle = (currentWeather, time, hasAlerts) => {
   tempIcon.innerHTML = thermoIcon;
   goBtn.innerHTML = searchIcon;
   humiditySvg.innerHTML = humidityIcon;
-  pressSvg.innerHTML = gaugeIcon;
   sunriseSvg.innerHTML = sunriseIcon;
   sunsetSvg.innerHTML = sunsetIcon;
   visibilitySvg.innerHTML = visibilityIcon;

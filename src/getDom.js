@@ -22,7 +22,6 @@ const getDom = (lat, lon, loc, country) => {
   const feelsLike = document.querySelector('.feelsLike');
   const humidity = document.querySelector('.humidity');
   const uv = document.querySelector('.uv');
-  const pressure = document.querySelector('.pressure');
   const sunrise = document.querySelector('.sunrise');
   const sunset = document.querySelector('.sunset');
   const visibility = document.querySelector('.visibility');
@@ -71,7 +70,6 @@ const getDom = (lat, lon, loc, country) => {
       feelsLike.textContent = `Feels like ${feelRound} ºC`;
       humidity.textContent = `${recData.current.humidity}%`;
       uv.textContent = `UV ${getFixedNumber(recData.current.uvi, 0)}`;
-      pressure.textContent = `${recData.current.pressure} hPa`;
       sunrise.textContent = `${sunriseTime}`;
       sunset.textContent = `${sunsetTime}`;
       visibility.textContent = `${recData.current.visibility / 1000} km`;
