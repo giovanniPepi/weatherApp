@@ -40,8 +40,8 @@ body {
   --fontSizeSemiHighlightMobile: 1.2rem;
   --fontSizeHighlightMobile: 1.8rem;
   --containerRadius: 1rem;
-  --topSectionsWidth: 15vw;
-  --topSectionsHeight: 60vh;
+  --topSectionsWidth: 23vw;
+  --topSectionsHeight: 50vh;
   --topSectionsWidthMobile: 35vw;
   --topSectionsHeightMobile: 50vh;
 }
