@@ -14,6 +14,7 @@ import minTempIcon from './img/icons/thermometer-chevron-down.svg';
 import rainPIcon from './img/icons/weather-rainy.svg';
 import thermoIcon from './img/icons/thermometer-high.svg';
 import setWeatherIcon from './setWeatherIcon';
+import setBackground from './setBackground';
 
 const getStyle = (currentWeather, time) => {
   const goBtn = document.querySelector('.go');
@@ -32,6 +33,7 @@ const getStyle = (currentWeather, time) => {
   const maxTempSvg = document.querySelectorAll('.maxTempSvg');
   const rainPercent = document.querySelectorAll('.rainPercent');
   const tempIcon = document.querySelector('.tempIcon');
+  const body = document.querySelector('body');
 
   tempIcon.innerHTML = thermoIcon;
   goBtn.innerHTML = searchIcon;
@@ -61,6 +63,9 @@ const getStyle = (currentWeather, time) => {
 
   // process weather description icon passing through the received array, checks night
   weatherSvg.innerHTML = setWeatherIcon(currentWeather, time, false);
+
+  // sets body background according to weather/day/night condition
+  setBackground(body, time, currentWeather);
 };
 
 export default getStyle;
