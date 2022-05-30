@@ -116,6 +116,7 @@ svg {
   align-content: space-between;
   justify-content: flex-start;
   gap: 0.7rem;
+  min-width: 30vw;
 }
 /* centers itself despite of other flex settings */
 .feelsLike,
