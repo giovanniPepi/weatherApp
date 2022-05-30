@@ -16,7 +16,7 @@ import thermoIcon from './img/icons/thermometer-high.svg';
 import setWeatherIcon from './setWeatherIcon';
 import setBackground from './setBackground';
 
-const getStyle = (currentWeather, time) => {
+const getStyle = (currentWeather, time, hasAlerts) => {
   const goBtn = document.querySelector('.go');
   const humiditySvg = document.querySelector('.humiditySvg');
   const pressSvg = document.querySelector('.pressSvg');
@@ -65,7 +65,7 @@ const getStyle = (currentWeather, time) => {
   weatherSvg.innerHTML = setWeatherIcon(currentWeather, time, false);
 
   // sets body background according to weather/day/night condition
-  setBackground(body, time, currentWeather);
+  setBackground(body, time, currentWeather, hasAlerts);
 };
 
 export default getStyle;

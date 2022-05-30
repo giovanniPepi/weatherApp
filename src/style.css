@@ -31,6 +31,7 @@ body {
   --fontSize: calc(0.5rem + 0.2vw + 0.8vh);
   --fontSizeSemiHighlight: 1.3rem;
   --fontSizeHightlight: 3rem;
+  --containerRadius: 1rem;
 }
 /* body * {
   border: 0.1px solid red;
@@ -59,6 +60,7 @@ svg {
   align-items: center;
   padding: var(--sidePaddings);
   gap: 1rem;
+  height: 30vh;
 }
 .daily {
   display: grid;
@@ -68,21 +70,26 @@ svg {
   grid-template-columns: repeat(auto-fit, 350px);
   grid-template-rows: repeat(auto, 1fr);
   padding: 1rem;
-  gap: 3rem;
+  gap: 2rem;
 }
 .dayContainer {
   display: flex;
   flex-direction: column;
+  align-items: space-between;
+  justify-content: center;
   gap: 0.5rem;
   width: 20rem;
-  height: 17rem;
+  height: 13rem;
   padding: 1rem;
 }
 /*  SVG */
 /* targets forecast SVGs */
 .dayDate ~ div > svg > svg,
-.maxTempSvg > svg {
-  width: 1.7rem;
+.maxTempSvg > svg,
+.minTempSvg > svg {
+  min-width: 1.7rem;
+  max-width: 1.7rem;
+  height: 100%;
 }
 
 /* Right side divs */
@@ -112,23 +119,31 @@ svg {
 }
 .alerts {
   max-width: 14vw;
+  padding: 0.5rem;
+  border-radius: var(--containerRadius);
 }
 .currentWeather {
   width: 21vw;
   min-width: 21rem;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  justify-content: center;
+  gap: 0.5rem;
 }
 .searchContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1rem;
+  height: 8vh;
 }
 .searchArea {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   padding: 1rem;
-  border-radius: 1rem;
+  border-radius: var(--containerRadius);
 }
 #search {
   all: unset;
@@ -169,7 +184,7 @@ svg {
 /* trick to appear centralized */
 .minTempSvg,
 .maxTempSvg {
-  margin-left: 0.25rem;
+  margin-left: 0.19rem;
 }
 
 /* wind adjusts */
@@ -184,12 +199,11 @@ svg {
 /* containers opacity background */
 main > section > section,
 .dayContainer {
-  border-radius: 1rem;
-  padding: 1.5rem;
+  border-radius: var(--containerRadius);
+  padding: 1.2rem;
 }
 
-.teste {
-  background: #fdfbfb;
-  background: #672dcb;
-  background: #2c2b2b3b;
+/* high specificity */
+.dayContainer > * {
+  align-items: flex-start;
 }

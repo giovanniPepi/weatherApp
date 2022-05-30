@@ -100,11 +100,6 @@ const getDom = (lat, lon, loc, country) => {
         snow1hCont.style.display = 'none';
       }
 
-      // check for alerts and cleans afterwards
-      if (verifyAlerts(recData)) {
-        alerts.textContent = recData.alerts[0].description;
-      } else alerts.textContent = '';
-
       // deletes previous values before writing new ones
       const previousContainer = document.querySelector('.dayContainer');
       if (previousContainer !== null) {
@@ -120,28 +115,30 @@ const getDom = (lat, lon, loc, country) => {
         const dayContainer = document.createElement('div');
         dayContainer.setAttribute('class', 'dayContainer');
 
-        const minContainer = document.createElement('div');
+        const tempContainer = document.createElement('div');
+        tempContainer.setAttribute('class', 'forecastItemContainer');
         const dayMin = document.createElement('div');
         const dayMinValue = getFixedNumber(day[0], 0);
         dayMin.textContent = `${dayMinValue} ºC`;
         const minTempSvg = document.createElement('svg');
         minTempSvg.setAttribute('class', 'minTempSvg');
 
-        const maxContainer = document.createElement('div');
+        const tempContainer2 = document.createElement('div');
+        tempContainer2.setAttribute('class', 'forecastItemContainer');
         const dayMax = document.createElement('div');
         const dayMaxValue = getFixedNumber(day[1], 0);
         dayMax.textContent = `${dayMaxValue} ºC`;
         const maxTempSvg = document.createElement('div');
         maxTempSvg.setAttribute('class', 'maxTempSvg');
 
-        const uviContainer = document.createElement('div');
+        const uvRainContainer = document.createElement('div');
+        uvRainContainer.setAttribute('class', 'forecastItemContainer');
         const uviMax = document.createElement('div');
         const uviMaxValue = getFixedNumber(day[2], 0);
         uviMax.textContent = `UV ${uviMaxValue}`;
         const uvigSvg = document.createElement('svg');
         uvigSvg.setAttribute('class', 'uvSvg');
 
-        const rainContainer = document.createElement('div');
         const rainProb = document.createElement('div');
         const rainProbValue = `${(day[3] * 100).toFixed(0)} %`;
         rainProb.textContent = rainProbValue;
@@ -149,6 +146,7 @@ const getDom = (lat, lon, loc, country) => {
         rainSvg.setAttribute('class', 'rainPercent');
 
         const weatherContainer = document.createElement('div');
+        weatherContainer.setAttribute('class', 'forecastItemContainer');
         const weatherDesc = document.createElement('div');
         const weatherDescValue = day[4];
         weatherDesc.textContent = capitalizeFirst(weatherDescValue);
@@ -170,29 +168,36 @@ const getDom = (lat, lon, loc, country) => {
         dayDate.textContent = dayDateValue;
 
         // appends
-        minContainer.appendChild(minTempSvg);
-        minContainer.appendChild(dayMin);
-        maxContainer.appendChild(maxTempSvg);
-        maxContainer.appendChild(dayMax);
-        uviContainer.appendChild(uvigSvg);
-        uviContainer.appendChild(uviMax);
-        rainContainer.appendChild(rainSvg);
-        rainContainer.appendChild(rainProb);
+        tempContainer.appendChild(minTempSvg);
+        tempContainer.appendChild(dayMin);
+        tempContainer2.appendChild(maxTempSvg);
+        tempContainer2.appendChild(dayMax);
+        uvRainContainer.appendChild(uvigSvg);
+        uvRainContainer.appendChild(uviMax);
+        uvRainContainer.appendChild(rainSvg);
+        uvRainContainer.appendChild(rainProb);
         weatherContainer.appendChild(weatherIcon);
         weatherContainer.appendChild(weatherDesc);
 
         dayContainer.appendChild(dayDate);
         dayContainer.appendChild(weatherContainer);
-        dayContainer.appendChild(minContainer);
-        dayContainer.appendChild(maxContainer);
-        dayContainer.appendChild(uviContainer);
-        dayContainer.appendChild(rainContainer);
+        dayContainer.appendChild(tempContainer);
+        dayContainer.appendChild(tempContainer2);
+        dayContainer.appendChild(uvRainContainer);
 
         daily.appendChild(dayContainer);
       }
 
       // calls styling(variable icons)
-      getStyle(recData.current.weather[0].main, recData.timezone);
+
+      // check for alerts and cleans afterwards
+      if (verifyAlerts(recData)) {
+        alerts.textContent = recData.alerts[0].description;
+        getStyle(recData.current.weather[0].main, recData.timezone, true);
+      } else {
+        getStyle(recData.current.weather[0].main, recData.timezone, false);
+        alerts.textContent = '';
+      }
     } catch (err) {
       console.log(err);
       name.textContent = 'Oooops, there seems to be a network error!';

@@ -12,7 +12,7 @@ import getNowTime from './getNowTime';
 import getNight from './getNight';
 import setUIcolors from './setUIcolors';
 
-const setBackground = (body, timeNow, currentWeather) => {
+const setBackground = (body, timeNow, currentWeather, hasAlerts) => {
   console.log(getNowTime(timeNow).getHours(), currentWeather);
 
   // checks if congerted timezone to hours is night
@@ -26,46 +26,46 @@ const setBackground = (body, timeNow, currentWeather) => {
     case 'Clear':
       if (night) {
         body.style.backgroundImage = `url(${clearSkyNight})`;
-        setUIcolors('#FDE68A', '#672dcb', '#ffffff25');
+        setUIcolors('#FDE68A', '#672dcb', '#ffffff25', hasAlerts);
       } else {
         body.style.backgroundImage = `url(${clearSkyDay})`;
-        setUIcolors('#f7f4f4', '#FDE047', '#0808084a');
+        setUIcolors('#f7f4f4', '#FDE047', '#0808084a', hasAlerts);
       }
       break;
     case 'Rain':
       if (night) {
         body.style.backgroundImage = `url(${rainNight})`;
-        setUIcolors('#fdfbfb', '#BEF264', '#040404ab');
+        setUIcolors('#fdfbfb', '#BEF264', '#040404ab', hasAlerts);
       } else {
         body.style.backgroundImage = `url(${rainDay})`;
-        setUIcolors('#f8f8f8', '#67e8f9', '#04040456');
+        setUIcolors('#f8f8f8', '#67e8f9', '#04040456', hasAlerts);
       }
       break;
     case 'Clouds':
       if (night) {
         body.style.backgroundImage = `url(${cloudNight})`;
-        setUIcolors('#FDE047', '#10B981', '#2c2b2b3b');
+        setUIcolors('#FDE047', '#10B981', '#2c2b2b3b', hasAlerts);
       } else {
         body.style.backgroundImage = `url(${cloudDay})`;
-        setUIcolors('#f7f4f4', '#67E8F9', '#08080880');
+        setUIcolors('#f7f4f4', '#67E8F9', '#08080880', hasAlerts);
       }
       break;
     case 'Fog':
       if (night) {
         body.style.backgroundImage = `url(${fogNight})`;
-        setUIcolors('#FDE047', '#10B981', '#2c2b2b3b');
+        setUIcolors('#FDE047', '#10B981', '#2c2b2b3b', hasAlerts);
       } else {
         body.style.backgroundImage = `url(${fogDay})`;
-        setUIcolors('#f7f4f4', '#67E8F9', '#08080880');
+        setUIcolors('#f7f4f4', '#67E8F9', '#08080880', hasAlerts);
       }
       break;
     case 'Snow':
       if (night) {
         body.style.backgroundImage = `url(${snowNight})`;
-        setUIcolors('#FDE68A', '#672dcb', '#ffffff25');
+        setUIcolors('#FDE68A', '#672dcb', '#ffffff25', hasAlerts);
       } else {
         body.style.backgroundImage = `url(${snowDay})`;
-        setUIcolors('#f7f4f4', '#FDE047', '#0808084a');
+        setUIcolors('#f7f4f4', '#FDE047', '#0808084a', hasAlerts);
       }
       break;
     default:
