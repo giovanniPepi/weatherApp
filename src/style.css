@@ -58,6 +58,7 @@ svg {
   justify-content: space-around;
   align-items: center;
   padding: var(--sidePaddings);
+  gap: 1rem;
 }
 .daily {
   display: grid;
@@ -184,7 +185,7 @@ svg {
 main > section > section,
 .dayContainer {
   border-radius: 1rem;
-  padding: 2rem;
+  padding: 1.5rem;
 }
 
 .teste {
