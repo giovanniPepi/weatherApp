@@ -1,7 +1,7 @@
 @media screen and (max-width: 767px) {
   input,
   #search {
-    font-size: 16px !important;
+    font-size: 16px;
   }
 }
 @font-face {
@@ -29,23 +29,21 @@ html {
 body {
   margin: 0;
   min-height: 100%;
+  text-align: center;
 }
 :root {
   --sidePaddings: 1.5rem;
   --middleGap: 4rem;
   /* tries to adapt to screen sizes*/
   --fontSize: calc(0.5rem + 0.2vw + 1vh);
-  --fontSizeSemiHighlight: 1.8rem;
-  --fontSizeHighlight: 3rem;
+  --fontSizeSemiHighlight: 1.5rem;
+  --fontSizeHighlight: 2rem;
   --containerRadius: 1rem;
-  --topSectionsWidth: 35vw;
-  --topSectionsHeight: 45vh;
+  --topSectionsWidth: 20vw;
+  --topSectionsHeight: 40vh;
   --topSectionsWidthMobile: 35vw;
-  --topSectionsHeightMobile: 30vh;
+  --topSectionsHeightMobile: 45vh;
 }
-/* body * {
-  border: 0.1px solid red;
-} */
 button {
   background: inherit;
 }
@@ -53,6 +51,56 @@ svg {
   width: 2rem;
   height: 2rem;
   fill: rgb(110, 35, 223);
+}
+
+/* PC */
+@media screen and (min-width: 801px) {
+  .highlight,
+  .currentWeather {
+    min-width: var(--topSectionsWidth);
+    min-height: var(--topSectionsHeight);
+  }
+  .current {
+    justify-content: space-evenly;
+    gap: 1rem;
+  }
+}
+
+/* mobile */
+@media screen and (min-width: 300px) and (max-width: 800px) {
+  .currentWeather,
+  .highlight {
+    min-width: var(--topSectionsWidthMobile);
+    min-height: var(--topSectionsHeightMobile);
+  }
+  .alerts {
+    max-width: calc(var(--topSectionsWidthMobile) * 2);
+  }
+  .current {
+    justify-content: center;
+    gap: 0.5rem;
+  }
+}
+
+/*Spaces weather infos*/
+.current {
+  display: flex;
+  align-items: center;
+  padding: var(--sidePaddings);
+}
+.highlight {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  justify-content: center;
+  gap: 0.7rem;
+}
+.currentWeather {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
 }
 .main {
   display: flex;
@@ -63,14 +111,6 @@ svg {
   font-weight: 500;
   font-style: medium;
   padding: 1rem;
-}
-/*Spaces weather infos*/
-.current {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: var(--sidePaddings);
-  gap: 1rem;
 }
 .daily {
   display: grid;
@@ -120,16 +160,6 @@ svg {
 }
 
 /*Current weather/search area */
-/* limits growth when alerts are present */
-.highlight {
-  display: flex;
-  flex-direction: column;
-  align-content: space-between;
-  justify-content: center;
-  gap: 0.7rem;
-  min-width: var(--topSectionsWidth);
-  min-height: var(--topSectionsHeight);
-}
 /* centers itself despite of other flex settings */
 .feelsLike,
 .date,
@@ -142,26 +172,6 @@ svg {
   border-radius: var(--containerRadius);
   max-width: calc(var(--topSectionsWidth) * 2);
   align-self: center;
-}
-.currentWeather {
-  min-width: var(--topSectionsWidth);
-  min-height: var(--topSectionsHeight);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  flex-wrap: wrap;
-}
-
-@media screen and (max-width: 1024px) {
-  .currentWeather,
-  .highlight {
-    min-width: var(--topSectionsWidthMobile);
-    min-height: var(--topSectionsHeightMobile);
-  }
-  .alerts {
-    max-width: calc(var(--topSectionsWidthMobile) * 2);
-  }
 }
 .searchContainer {
   display: flex;
