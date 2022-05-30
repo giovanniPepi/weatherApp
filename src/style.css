@@ -60,7 +60,7 @@ svg {
   align-items: center;
   padding: var(--sidePaddings);
   gap: 1rem;
-  height: 30vh;
+  min-height: 33vh;
 }
 .daily {
   display: grid;
