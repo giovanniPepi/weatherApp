@@ -24,8 +24,10 @@ const setBackground = (body, timeNow, currentWeather) => {
     case 'Clear':
       if (night) {
         body.style.backgroundImage = `url(${clearSkyNight})`;
+        setUIcolors('#FDE68A', '#672dcb', '#ffffff25');
       } else {
         body.style.backgroundImage = `url(${clearSkyDay})`;
+        setUIcolors('#f7f4f4', '#FDE047', '#0808084a');
       }
       break;
     case 'Rain':
@@ -40,7 +42,7 @@ const setBackground = (body, timeNow, currentWeather) => {
     case 'Clouds':
       if (night) {
         body.style.backgroundImage = `url(${cloudNight})`;
-        setUIcolors('#FDE68A', '#672dcb', '#ffffff25');
+        setUIcolors('#FDE047', '#10B981', '#2c2b2b3b');
       } else {
         body.style.backgroundImage = `url(${cloudDay})`;
         setUIcolors('#f7f4f4', '#67E8F9', '#08080880');
@@ -56,6 +58,7 @@ const setBackground = (body, timeNow, currentWeather) => {
     default:
       body.style.backgroundImage = 'none';
   }
-};
 
+  // fog
+};
 export default setBackground;
