@@ -41,7 +41,7 @@ body {
   --fontSizeHighlightMobile: 1.8rem;
   --containerRadius: 1rem;
   --topSectionsWidth: 15vw;
-  --topSectionsHeight: 35vh;
+  --topSectionsHeight: 38vh;
   --topSectionsWidthMobile: 35vw;
   --topSectionsHeightMobile: 50vh;
 }
@@ -57,7 +57,8 @@ svg {
 /* PC */
 @media screen and (min-width: 801px) {
   .highlight {
-    justify-content: center;
+    justify-content: space-between;
+    gap: 0.1rem;
   }
   .highlight,
   .currentWeather {
@@ -84,8 +85,16 @@ svg {
   .feelsLike {
     font-size: 0.9rem;
   }
+  .current {
+    font-size: 1.3rem;
+  }
   .searchArea {
     width: 54vw;
+  }
+  .dayContainer {
+    width: 20rem;
+    height: 10rem;
+    justify-content: space-between;
   }
 }
 
@@ -120,11 +129,22 @@ svg {
     font-size: 1rem;
   }
   .current {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: bold;
   }
+  .dayContainer {
+    min-height: 20vh;
+    min-width: 50vw;
+    justify-content: center;
+  }
 }
-
+.dayContainer {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
 .alerts {
   padding: 0.5rem;
   border-radius: var(--containerRadius);
@@ -184,16 +204,6 @@ svg {
   grid-template-rows: repeat(auto, 1fr);
   padding: 1rem;
   gap: 1rem;
-}
-.dayContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: space-between;
-  justify-content: center;
-  gap: 0.5rem;
-  width: 18rem;
-  height: 12rem;
-  padding: 1rem;
 }
 /*  SVG */
 /* targets forecast SVGs */
