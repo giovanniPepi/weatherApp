@@ -126,12 +126,13 @@ svg {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 1rem;
 }
 #search {
   all: unset;
   padding: 0.4rem;
   height: 1.3rem;
-  border: 1px solid black;
   border-radius: 0.5rem;
 }
 .weatherCont,
@@ -177,4 +178,17 @@ svg {
 }
 .windSpeed {
   align-self: flex-end;
+}
+
+/* containers opacity background */
+main > section > section,
+.dayContainer {
+  border-radius: 1rem;
+  padding: 3rem;
+}
+
+.teste {
+  background: #f7f4f4;
+  background: #67e8f9;
+  background: #08080880;
 }

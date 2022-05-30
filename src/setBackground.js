@@ -8,6 +8,7 @@ import snowDay from './img/pexels-pixabay-259659.jpg';
 import snowNight from './img/pexels-martin-mariani-3801463.jpg';
 import getNowTime from './getNowTime';
 import getNight from './getNight';
+import setUIcolors from './setUIcolors';
 
 const setBackground = (body, timeNow, currentWeather) => {
   console.log(getNowTime(timeNow).getHours(), currentWeather);
@@ -37,8 +38,10 @@ const setBackground = (body, timeNow, currentWeather) => {
     case 'Clouds':
       if (night) {
         body.style.backgroundImage = `url(${cloudNight})`;
+        setUIcolors('#FDE68A', '#672dcb', '#ffffff25');
       } else {
         body.style.backgroundImage = `url(${cloudDay})`;
+        setUIcolors('#f7f4f4', '#67E8F9', '#08080880');
       }
       break;
     case 'Snow':
