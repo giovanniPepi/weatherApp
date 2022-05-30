@@ -6,6 +6,8 @@ import cloudDay from './img/pexels-pixabay-158163_clouds.jpg';
 import cloudNight from './img/pexels-brett-sayles-3910141.jpg';
 import snowDay from './img/pexels-pixabay-259659.jpg';
 import snowNight from './img/pexels-martin-mariani-3801463.jpg';
+import fogDay from './img/pexels-aleksandra-blinova-8659252.jpg';
+import fogNight from './img/pexels-pixabay-531360.jpg';
 import getNowTime from './getNowTime';
 import getNight from './getNight';
 import setUIcolors from './setUIcolors';
@@ -48,11 +50,22 @@ const setBackground = (body, timeNow, currentWeather) => {
         setUIcolors('#f7f4f4', '#67E8F9', '#08080880');
       }
       break;
+    case 'Fog':
+      if (night) {
+        body.style.backgroundImage = `url(${fogNight})`;
+        setUIcolors('#FDE047', '#10B981', '#2c2b2b3b');
+      } else {
+        body.style.backgroundImage = `url(${fogDay})`;
+        setUIcolors('#f7f4f4', '#67E8F9', '#08080880');
+      }
+      break;
     case 'Snow':
       if (night) {
         body.style.backgroundImage = `url(${snowNight})`;
+        setUIcolors('#FDE68A', '#672dcb', '#ffffff25');
       } else {
         body.style.backgroundImage = `url(${snowDay})`;
+        setUIcolors('#f7f4f4', '#FDE047', '#0808084a');
       }
       break;
     default:
