@@ -2,6 +2,8 @@ import clearSkyDay from './img/pexels-brett-sayles-912364_1k.jpg';
 import clearSkyNight from './img/pexels-drift-shutterbug-2085998.jpg';
 import rainDay from './img/pexels-brazil-topno-9604806.jpg';
 import rainNight from './img/pexels-rahul-pandit-2816625_rainy.jpg';
+import thunderNight from './img/pexels-anton-kudryashov-9861432.jpg';
+import thunderDay from './img/pexels-tsvetoslav-hristov-2499846.jpg';
 import cloudDay from './img/pexels-pixabay-158163_clouds.jpg';
 import cloudNight from './img/pexels-brett-sayles-3910141.jpg';
 import snowDay from './img/pexels-pixabay-259659.jpg';
@@ -38,6 +40,15 @@ const setBackground = (body, timeNow, currentWeather, hasAlerts) => {
         setUIcolors('#fdfbfb', '#BEF264', '#040404ab', hasAlerts);
       } else {
         body.style.backgroundImage = `url(${rainDay})`;
+        setUIcolors('#f8f8f8', '#67e8f9', '#04040456', hasAlerts);
+      }
+      break;
+    case 'Thunderstorm':
+      if (night) {
+        body.style.backgroundImage = `url(${thunderNight})`;
+        setUIcolors('#fdfbfb', '#BEF264', '#040404ab', hasAlerts);
+      } else {
+        body.style.backgroundImage = `url(${thunderDay})`;
         setUIcolors('#f8f8f8', '#67e8f9', '#04040456', hasAlerts);
       }
       break;

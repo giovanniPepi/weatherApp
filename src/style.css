@@ -64,6 +64,7 @@ svg {
   .currentWeather {
     min-width: var(--topSectionsWidth);
     min-height: var(--topSectionsHeight);
+    gap: 1rem;
   }
   .alerts {
     max-width: calc(var(--topSectionsWidth) * 2);
