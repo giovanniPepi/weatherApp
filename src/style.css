@@ -41,7 +41,7 @@ body {
   --fontSizeHighlightMobile: 1.8rem;
   --containerRadius: 1rem;
   --topSectionsWidth: 23vw;
-  --topSectionsHeight: 50vh;
+  --topSectionsHeight: 55vh;
   --topSectionsWidthMobile: 35vw;
   --topSectionsHeightMobile: 50vh;
 }
@@ -201,7 +201,7 @@ svg {
   align-items: center;
   justify-items: center;
   justify-content: center;
-  grid-template-columns: repeat(auto-fit, clamp(350px, 400px, 40vw));
+  grid-template-columns: repeat(auto-fit, clamp(250px, 350px, 50vw));
   grid-template-rows: repeat(auto, 1fr);
   padding: 1rem;
   gap: 1rem;
