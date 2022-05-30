@@ -69,25 +69,26 @@ const getDom = (lat, lon, loc, country) => {
       time.textContent = nowHour;
       temp.textContent = `${tempRound} ºC`;
       feelsLike.textContent = `Feels like ${feelRound} ºC`;
-      humidity.textContent = `Humidity ${recData.current.humidity} %`;
+      humidity.textContent = `${recData.current.humidity}%`;
       uv.textContent = `UV ${getFixedNumber(recData.current.uvi, 0)}`;
       pressure.textContent = `${recData.current.pressure} hPa`;
-      sunrise.textContent = `Sunrise ${sunriseTime}`;
-      sunset.textContent = `Sunset ${sunsetTime}`;
-      visibility.textContent = `Visibility ${
-        recData.current.visibility / 1000
-      } km`;
+      sunrise.textContent = `${sunriseTime}`;
+      sunset.textContent = `${sunsetTime}`;
+      visibility.textContent = `${recData.current.visibility / 1000} km`;
       weather.textContent = capitalizeFirst(
         recData.current.weather[0].description
       );
       windDeg.textContent = `${windDir}`;
       windSpeed.textContent = `${windSpeedKm} km/h`;
-      clouds.textContent = `${recData.current.clouds} %`;
+      clouds.textContent = `Clouds ${recData.current.clouds} %`;
 
       // check if rain and snow data are present and shows it
       if (verifyRain(recData.current)) {
         rain1h.textContent = `${recData.current.rain['1h']} mm`;
         rain1hCont.style.display = 'flex';
+        rain1hCont.style.alignItems = 'center';
+        rain1hCont.style.justifyContent = 'space-between';
+        rain1hCont.style.gap = '0.5rem';
       } else {
         rain1h.textContent = '';
         rain1hCont.style.display = 'none';
@@ -95,6 +96,9 @@ const getDom = (lat, lon, loc, country) => {
       if (verifySnow(recData.current)) {
         snow1h.textContent = `${recData.current.snow['1h']} mm`;
         snow1hCont.style.display = 'flex';
+        snow1hCont.style.alignItems = 'center';
+        snow1hCont.style.justifyContent = 'space-between';
+        snow1hCont.style.gap = '0.5rem';
       } else {
         snow1h.textContent = '';
         snow1hCont.style.display = 'none';

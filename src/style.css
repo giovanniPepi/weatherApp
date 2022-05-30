@@ -234,10 +234,6 @@ svg {
 .windSpeed {
   align-self: flex-end;
 }
-.rain1hCont {
-  align-items: space-between;
-}
-
 /* containers opacity background */
 main > section > section,
 .dayContainer {
