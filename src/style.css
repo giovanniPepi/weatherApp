@@ -29,7 +29,7 @@ body {
   --middleGap: 4rem;
   /* tries to adapt to screen sizes*/
   --fontSize: calc(0.5rem + 0.2vw + 0.8vh);
-  --fontSizeSemiHighlight: 1.3rem;
+  --fontSizeSemiHighlight: 1.4rem;
   --fontSizeHightlight: 3rem;
   --containerRadius: 1rem;
 }
@@ -113,10 +113,18 @@ svg {
 .highlight {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-content: space-between;
   justify-content: flex-start;
   gap: 0.7rem;
 }
+/* centers itself despite of other flex settings */
+.feelsLike,
+.date,
+.name,
+.time {
+  align-self: center;
+}
+
 .alerts {
   max-width: 14vw;
   padding: 0.5rem;
@@ -127,8 +135,8 @@ svg {
   min-width: 21rem;
   display: flex;
   flex-direction: column;
-  align-content: space-between;
   justify-content: center;
+  align-content: space-between;
   gap: 0.5rem;
 }
 .searchContainer {
@@ -152,12 +160,19 @@ svg {
   border-radius: 0.5rem;
 }
 .weatherCont,
-.tempContainer {
+.tempContainer,
+.humidityCont,
+.uvCont {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
   font-size: var(--fontSizeHightlight);
+}
+/* revert to original font size */
+.humidityCont,
+.uvCont {
+  font-size: inherit;
 }
 .name {
   font-family: 'Raleway', sans-serif;
