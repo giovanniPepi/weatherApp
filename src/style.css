@@ -35,10 +35,13 @@ body {
   --middleGap: 4rem;
   /* tries to adapt to screen sizes*/
   --fontSize: calc(0.5rem + 0.2vw + 1vh);
-  --fontSizeSemiHighlight: 2.2rem;
+  --fontSizeSemiHighlight: 1.8rem;
   --fontSizeHighlight: 3rem;
   --containerRadius: 1rem;
-  --topSectionsWidth: 32vw;
+  --topSectionsWidth: 35vw;
+  --topSectionsHeight: 45vh;
+  --topSectionsWidthMobile: 35vw;
+  --topSectionsHeightMobile: 30vh;
 }
 /* body * {
   border: 0.1px solid red;
@@ -68,7 +71,6 @@ svg {
   align-items: center;
   padding: var(--sidePaddings);
   gap: 1rem;
-  min-height: 30vh;
 }
 .daily {
   display: grid;
@@ -86,8 +88,8 @@ svg {
   align-items: space-between;
   justify-content: center;
   gap: 0.5rem;
-  width: 20rem;
-  height: 13rem;
+  width: 18rem;
+  height: 12rem;
   padding: 1rem;
 }
 /*  SVG */
@@ -114,6 +116,7 @@ svg {
 .snow1hCont,
 .currentSvg {
   display: none;
+  justify-content: flex-end;
 }
 
 /*Current weather/search area */
@@ -125,7 +128,7 @@ svg {
   justify-content: center;
   gap: 0.7rem;
   min-width: var(--topSectionsWidth);
-  min-height: 30vh;
+  min-height: var(--topSectionsHeight);
 }
 /* centers itself despite of other flex settings */
 .feelsLike,
@@ -142,12 +145,23 @@ svg {
 }
 .currentWeather {
   min-width: var(--topSectionsWidth);
+  min-height: var(--topSectionsHeight);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-content: space-between;
-  gap: 0.5rem;
-  min-height: 30vh;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1024px) {
+  .currentWeather,
+  .highlight {
+    min-width: var(--topSectionsWidthMobile);
+    min-height: var(--topSectionsHeightMobile);
+  }
+  .alerts {
+    max-width: calc(var(--topSectionsWidthMobile) * 2);
+  }
 }
 .searchContainer {
   display: flex;
@@ -190,9 +204,6 @@ svg {
   font-style: italic;
   font-size: 1rem;
 }
-/*Limit alerts font */
-.alerts {
-}
 /*daily forecast */
 .dayDate {
   align-self: center;
@@ -204,12 +215,17 @@ svg {
 }
 
 /* wind adjusts */
-.windData {
+.windData,
+.rainData,
+.snowData {
   display: flex;
   flex-direction: column;
 }
 .windSpeed {
   align-self: flex-end;
+}
+.rain1hCont {
+  align-items: space-between;
 }
 
 /* containers opacity background */

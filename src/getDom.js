@@ -69,31 +69,31 @@ const getDom = (lat, lon, loc, country) => {
       time.textContent = nowHour;
       temp.textContent = `${tempRound} ºC`;
       feelsLike.textContent = `Feels like ${feelRound} ºC`;
-      humidity.textContent = `Humidity: ${recData.current.humidity} %`;
-      uv.textContent = `UV Index: ${getFixedNumber(recData.current.uvi, 0)}`;
-      pressure.textContent = `Pressure: ${recData.current.pressure} hPa`;
-      sunrise.textContent = `Sunrise: ${sunriseTime}`;
-      sunset.textContent = `Sunset: ${sunsetTime}`;
-      visibility.textContent = `Visibility: ${
+      humidity.textContent = `Humidity ${recData.current.humidity} %`;
+      uv.textContent = `UV ${getFixedNumber(recData.current.uvi, 0)}`;
+      pressure.textContent = `${recData.current.pressure} hPa`;
+      sunrise.textContent = `Sunrise ${sunriseTime}`;
+      sunset.textContent = `Sunset ${sunsetTime}`;
+      visibility.textContent = `Visibility ${
         recData.current.visibility / 1000
       } km`;
       weather.textContent = capitalizeFirst(
         recData.current.weather[0].description
       );
-      windDeg.textContent = `Direction: ${windDir}`;
-      windSpeed.textContent = `Speed: ${windSpeedKm} km/h`;
-      clouds.textContent = `Cloud coverage: ${recData.current.clouds} %`;
+      windDeg.textContent = `${windDir}`;
+      windSpeed.textContent = `${windSpeedKm} km/h`;
+      clouds.textContent = `${recData.current.clouds} %`;
 
       // check if rain and snow data are present and shows it
       if (verifyRain(recData.current)) {
-        rain1h.textContent = `Rain volume in the last hour: ${recData.current.rain['1h']} mm`;
+        rain1h.textContent = `${recData.current.rain['1h']} mm`;
         rain1hCont.style.display = 'flex';
       } else {
         rain1h.textContent = '';
         rain1hCont.style.display = 'none';
       }
       if (verifySnow(recData.current)) {
-        snow1h.textContent = `Snow volume in the last hour: ${recData.current.snow['1h']} mm`;
+        snow1h.textContent = `${recData.current.snow['1h']} mm`;
         snow1hCont.style.display = 'flex';
       } else {
         snow1h.textContent = '';
