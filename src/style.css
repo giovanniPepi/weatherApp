@@ -38,6 +38,7 @@ body {
   --fontSizeSemiHighlight: 2.2rem;
   --fontSizeHighlight: 3rem;
   --containerRadius: 1rem;
+  --topSectionsWidth: 32vw;
 }
 /* body * {
   border: 0.1px solid red;
@@ -123,7 +124,7 @@ svg {
   align-content: space-between;
   justify-content: center;
   gap: 0.7rem;
-  min-width: 30vw;
+  min-width: var(--topSectionsWidth);
   min-height: 30vh;
 }
 /* centers itself despite of other flex settings */
@@ -136,9 +137,11 @@ svg {
 .alerts {
   padding: 1rem;
   border-radius: var(--containerRadius);
+  max-width: calc(var(--topSectionsWidth) * 2);
+  align-self: center;
 }
 .currentWeather {
-  min-width: 30vw;
+  min-width: var(--topSectionsWidth);
   display: flex;
   flex-direction: column;
   justify-content: center;
