@@ -34,15 +34,16 @@ body {
 :root {
   --sidePaddings: 1.5rem;
   --middleGap: 4rem;
-  /* tries to adapt to screen sizes*/
-  --fontSize: calc(0.5rem + 0.2vw + 1vh);
+  --fontSize: 1rem;
   --fontSizeSemiHighlight: 1.5rem;
   --fontSizeHighlight: 2rem;
+  --fontSizeSemiHighlightMobile: 1.2rem;
+  --fontSizeHighlightMobile: 1.8rem;
   --containerRadius: 1rem;
-  --topSectionsWidth: 20vw;
-  --topSectionsHeight: 40vh;
+  --topSectionsWidth: 15vw;
+  --topSectionsHeight: 35vh;
   --topSectionsWidthMobile: 35vw;
-  --topSectionsHeightMobile: 45vh;
+  --topSectionsHeightMobile: 50vh;
 }
 button {
   background: inherit;
@@ -55,58 +56,120 @@ svg {
 
 /* PC */
 @media screen and (min-width: 801px) {
+  .highlight {
+    justify-content: center;
+  }
   .highlight,
   .currentWeather {
     min-width: var(--topSectionsWidth);
     min-height: var(--topSectionsHeight);
   }
+  .alerts {
+    max-width: calc(var(--topSectionsWidth) * 2);
+    max-height: 30vh;
+  }
   .current {
     justify-content: space-evenly;
     gap: 1rem;
+  }
+  /* fonts */
+  .weatherCont,
+  .tempContainer {
+    font-size: var(--fontSizeSemiHighlight);
+  }
+  .name,
+  .date {
+    font-size: var(--fontSizeHighlight);
+  }
+  .feelsLike {
+    font-size: 0.9rem;
+  }
+  .searchArea {
+    width: 54vw;
   }
 }
 
 /* mobile */
 @media screen and (min-width: 300px) and (max-width: 800px) {
+  .highlight {
+    justify-content: space-evenly;
+  }
   .currentWeather,
   .highlight {
     min-width: var(--topSectionsWidthMobile);
     min-height: var(--topSectionsHeightMobile);
   }
   .alerts {
-    max-width: calc(var(--topSectionsWidthMobile) * 2);
+    min-width: calc(var(--topSectionsWidthMobile) * 1.8);
+    max-height: 30vh;
   }
   .current {
     justify-content: center;
     gap: 0.5rem;
   }
+  /* fonts */
+  .weatherCont,
+  .tempContainer {
+    font-size: var(--fontSizeSemiHighlightMobile);
+  }
+  .name,
+  .date {
+    font-size: var(--fontSizeHighlightMobile);
+  }
+  .feelsLike {
+    font-size: 1rem;
+  }
+  .current {
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
 }
 
+.alerts {
+  padding: 0.5rem;
+  border-radius: var(--containerRadius);
+  align-self: center;
+}
 /*Spaces weather infos*/
 .current {
   display: flex;
   align-items: center;
-  padding: var(--sidePaddings);
+  padding: 0.5rem;
 }
 .highlight {
   display: flex;
   flex-direction: column;
   align-content: space-between;
-  justify-content: center;
   gap: 0.7rem;
 }
 .currentWeather {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-content: center;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
+.weatherCont,
+.tempContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.name {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+}
+.date {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+}
+.feelsLike {
+  font-style: italic;
+}
+
 .main {
   display: flex;
   flex-direction: column;
   max-height: 100%;
-  font-size: var(--fontSize);
   font-family: 'Raleway', sans-serif;
   font-weight: 500;
   font-style: medium;
@@ -167,12 +230,6 @@ svg {
 .time {
   align-self: center;
 }
-.alerts {
-  padding: 1rem;
-  border-radius: var(--containerRadius);
-  max-width: calc(var(--topSectionsWidth) * 2);
-  align-self: center;
-}
 .searchContainer {
   display: flex;
   justify-content: center;
@@ -192,27 +249,6 @@ svg {
   padding: 0.4rem;
   height: 1.3rem;
   border-radius: 0.5rem;
-}
-.weatherCont,
-.tempContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: var(--fontSizeSemiHighlight);
-}
-.name {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 700;
-  font-size: var(--fontSizeHighlight);
-}
-.date {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 600;
-  font-size: var(--fontSizeHighlight);
-}
-.feelsLike {
-  font-style: italic;
-  font-size: 1rem;
 }
 /*daily forecast */
 .dayDate {
