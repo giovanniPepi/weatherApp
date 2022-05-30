@@ -3,6 +3,7 @@ import rainIcon from './img/icons/weather-pouring.svg';
 import cloudIcon from './img/icons/weather-cloudy.svg';
 import moonIcon from './img/icons/weather-night.svg';
 import snowIcon from './img/icons/snowflake.svg';
+import thunderIcon from './img/icons/weather-lightning.svg';
 import getNowTime from './getNowTime';
 import getNight from './getNight';
 
@@ -20,6 +21,8 @@ const setWeatherIcon = (weather, time, future) => {
       return moonIcon;
     case 'Rain':
       return rainIcon;
+    case 'Thunderstorm':
+      return thunderIcon;
     case 'Clouds':
       return cloudIcon;
     case 'Snow':

@@ -40,7 +40,7 @@ body {
   --fontSizeSemiHighlightMobile: 1.2rem;
   --fontSizeHighlightMobile: 1.8rem;
   --containerRadius: 1rem;
-  --topSectionsWidth: 15vw;
+  --topSectionsWidth: 20vw;
   --topSectionsHeight: 38vh;
   --topSectionsWidthMobile: 35vw;
   --topSectionsHeightMobile: 50vh;
@@ -62,8 +62,8 @@ svg {
   }
   .highlight,
   .currentWeather {
-    min-width: var(--topSectionsWidth);
-    min-height: var(--topSectionsHeight);
+    width: var(--topSectionsWidth);
+    height: var(--topSectionsHeight);
     gap: 1rem;
   }
   .alerts {
