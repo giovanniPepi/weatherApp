@@ -4,24 +4,6 @@
     font-size: 16px;
   }
 }
-@font-face {
-  font-family: 'Raleway';
-  src: url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
-  font-weight: 500;
-  font-style: medium;
-}
-@font-face {
-  font-family: 'Raleway';
-  src: url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
-  font-weight: 600;
-  font-style: semibold;
-}
-@font-face {
-  font-family: 'Raleway';
-  src: url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
-  font-weight: 700;
-  font-style: bold;
-}
 html {
   min-height: 100%;
   margin: 0;
@@ -175,14 +157,6 @@ svg {
   justify-content: space-between;
   align-items: center;
 }
-.name {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 700;
-}
-.date {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 600;
-}
 .feelsLike {
   font-style: italic;
 }
@@ -191,7 +165,6 @@ svg {
   display: flex;
   flex-direction: column;
   max-height: 100%;
-  font-family: 'Raleway', sans-serif;
   font-weight: 500;
   font-style: medium;
   padding: 1rem;
