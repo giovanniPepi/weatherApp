@@ -33,6 +33,7 @@ const setBackground = (body, timeNow, currentWeather) => {
         body.style.backgroundImage = `url(${rainNight})`;
       } else {
         body.style.backgroundImage = `url(${rainDay})`;
+        setUIcolors('#f8f8f8', '#67e8f9', '#04040456');
       }
       break;
     case 'Clouds':
