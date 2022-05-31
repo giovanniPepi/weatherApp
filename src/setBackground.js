@@ -10,6 +10,7 @@ import snowDay from './img/pexels-pixabay-259659.jpg';
 import snowNight from './img/pexels-martin-mariani-3801463.jpg';
 import fogDay from './img/pexels-aleksandra-blinova-8659252.jpg';
 import fogNight from './img/pexels-pixabay-531360.jpg';
+import mistDay from './img/pexels-eberhard-grossgasteiger-1743392.jpg';
 import getNowTime from './getNowTime';
 import getNight from './getNight';
 import setUIcolors from './setUIcolors';
@@ -80,8 +81,13 @@ const setBackground = (body, timeNow, currentWeather, hasAlerts) => {
         setUIcolors('#f7f4f4', '#FDE047', '#0808084a', hasAlerts);
       }
       break;
+    case 'Mist': {
+      body.style.backgroundImage = `url(${mistDay})`;
+      setUIcolors('#f7f4f4', '#FDE047', '#0808084a', hasAlerts);
+    }
     default:
-      body.style.backgroundImage = 'none';
+      body.style.backgroundImage = `url(${rainDay})`;
+      setUIcolors('#f8f8f8', '#67e8f9', '#04040456', hasAlerts);
   }
 
   // fog
