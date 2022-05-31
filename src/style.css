@@ -23,7 +23,7 @@ body {
   --fontSizeHighlightMobile: 1.5rem;
   --containerRadius: 1rem;
   --topSectionsWidth: clamp(250px, 15vw, 20rem);
-  --topSectionsHeight: clamp(350px, 35vh, 50rem);
+  --topSectionsHeight: clamp(450px, 35vh, 50rem);
   --topSectionsWidthMobile: 34vw;
   --topSectionsHeightMobile: 55vh;
   --topSectionsHeightMobileMax: 65vh;
