@@ -2,12 +2,26 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Weather app</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-TB5TEYFBFJ"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        
+        gtag('config', 'G-TB5TEYFBFJ');
+    </script> 
+</script>
+  <title>Weather app</title>
   <script defer src="main.js"></script></head>
   <body>
     <main class="main">
         <section class="current">
           <section class="highlight">
+          <div class="name"></div>
+          <div class="date"></div>
+          <div class="time"></div>
             <div class="weatherCont">
               <svg class="weatherSvg"></svg>
               <div class="weather"></div>
@@ -16,25 +30,35 @@
               <svg class="tempIcon"></svg>
               <div class="temp"></div>
           </div>
-              <div class="name"></div>
-              <div class="date"></div>
-              <div class="time"></div>           
-              <div class="feelsLike"></div>                  
-              <svg class="currentSvg"></svg>
+          
+          <div class="feelsLike"></div>
           </section>
-          <div class="alerts"></div>
           <section class="currentWeather">
             <div class="humidityCont">
               <svg class="humiditySvg"></svg>
-              <div class="humidity"></div>              
-            </div>
+            <div class="humidity"></div>              
+          </div>
             <div class="uvCont">
               <svg class="uvSvg"></svg>
-              <div class="uv"></div>   
+            <div class="uv"></div>   
             </div>
-            <div class="pressureCont">
-              <svg class="pressSvg"></svg>
-              <div class="pressure"></div>   
+            <div class="cloudsCont">
+              <svg class="cloudSvg"></svg>
+              <div class="clouds"></div>  
+            </div>
+            <div class="rain1hCont">
+              <svg class="rainSvg"></svg>
+              <div class="rainData">
+                <div>Last hour: </div>
+                <div class="rain1h"></div>
+              </div>              
+            </div>
+            <div class="windDegCont">
+              <svg class="windSvg"></svg>
+              <div class="windData">
+              <div class="windDeg"></div>  
+              <div class="windSpeed"></div>
+              </div>
             </div>
             <div class="sunriseCont">
               <svg class="sunriseSvg"></svg>
@@ -48,33 +72,25 @@
               <svg class="visibilitySvg"></svg>
               <div class="visibility"></div>  
             </div>
-            <div class="cloudsCont">
-              <svg class="cloudSvg"></svg>
-              <div class="clouds"></div>  
-            </div>
-            <div class="windDegCont">
-              <svg class="windSvg"></svg>
-              <div class="windData">
-              <div class="windDeg"></div>  
-              <div class="windSpeed"></div>
-              </div>
-            </div>
-            <div class="rain1hCont">
-              <svg class="rainSvg"></svg>
-              <div class="rain1h"></div>                
-            </div>
             <div class="snow1hCont">
               <svg class="snowSvg"></svg>
+              <div class="snowData">
+                <div>Last hour:</div>
               <div class="snow1h"></div>               
+              </div>
             </div>
           </section>
         </section>  
-          <section class="searchContainer">
+        <section class="searchContainer">
             <div class="searchArea">
             <input type="text" id="search" placeholder="Search location..." />
             <svg class="go""></svg>
             </div>
-          </section>   
+        </section>   
+
+        <section class="alerts"></section>
+
+        
       <section class="daily">
       </section>
       </main>

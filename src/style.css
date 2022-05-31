@@ -1,20 +1,8 @@
-@font-face {
-  font-family: 'Raleway';
-  src: url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
-  font-weight: 500;
-  font-style: medium;
-}
-@font-face {
-  font-family: 'Raleway';
-  src: url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
-  font-weight: 600;
-  font-style: semibold;
-}
-@font-face {
-  font-family: 'Raleway';
-  src: url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
-  font-weight: 700;
-  font-style: bold;
+@media screen and (max-width: 767px) {
+  input,
+  #search {
+    font-size: 16px;
+  }
 }
 html {
   min-height: 100%;
@@ -23,65 +11,196 @@ html {
 body {
   margin: 0;
   min-height: 100%;
+  text-align: center;
 }
 :root {
   --sidePaddings: 1.5rem;
   --middleGap: 4rem;
-  /* tries to adapt to screen sizes*/
-  --fontSize: calc(0.5rem + 0.2vw + 0.8vh);
-  --fontSizeSemiHighlight: 1.3rem;
-  --fontSizeHightlight: 3rem;
+  --fontSize: 1rem;
+  --fontSizeSemiHighlight: 1.5rem;
+  --fontSizeHighlight: 2rem;
+  --fontSizeSemiHighlightMobile: 1.1rem;
+  --fontSizeHighlightMobile: 1.5rem;
+  --containerRadius: 1rem;
+  --topSectionsWidth: clamp(250px, 15vw, 20rem);
+  --topSectionsHeight: clamp(450px, 35vh, 50rem);
+  --topSectionsWidthMobile: 34vw;
+  --topSectionsHeightMobile: 55vh;
+  --topSectionsHeightMobileMax: 65vh;
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-/* body * {
-  border: 0.1px solid red;
-} */
 button {
   background: inherit;
 }
 svg {
-  width: 2rem;
-  height: 2rem;
   fill: rgb(110, 35, 223);
 }
-.main {
+
+/* PC */
+@media screen and (min-width: 801px) {
+  svg {
+    width: 2rem;
+    height: 2rem;
+  }
+  .highlight {
+    justify-content: space-between;
+    gap: 0.1rem;
+  }
+  .highlight,
+  .currentWeather {
+    width: var(--topSectionsWidth);
+    height: var(--topSectionsHeight);
+    gap: 1rem;
+  }
+  .alerts {
+    max-width: calc(var(--topSectionsWidth) * 2);
+    max-height: 20vh;
+    overflow: scroll;
+  }
+  .current {
+    justify-content: center;
+    gap: 0.8rem;
+  }
+  /* fonts */
+  .weatherCont,
+  .tempContainer {
+    font-size: var(--fontSizeSemiHighlight);
+  }
+  .name,
+  .date {
+    font-size: var(--fontSizeHighlight);
+  }
+  .feelsLike {
+    font-size: 0.9rem;
+  }
+  .current {
+    font-size: 1.3rem;
+  }
+  .searchArea {
+    width: 54vw;
+  }
+  .dayContainer {
+    width: 20rem;
+    height: 10rem;
+    justify-content: space-between;
+  }
+}
+
+/* mobile */
+@media screen and (min-width: 300px) and (max-width: 800px) {
+  svg {
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+  .highlight {
+    justify-content: space-evenly;
+  }
+  .currentWeather,
+  .highlight {
+    min-width: var(--topSectionsWidthMobile);
+    min-height: clamp(300px, var(--topSectionsHeightMobile), 100rem);
+    max-width: var(--topSectionsWidthMobile);
+    max-height: var(--topSectionsHeightMobileMax);
+  }
+  .alerts {
+    min-width: calc(var(--topSectionsWidthMobile) * 1.8);
+    max-height: 10vh;
+    overflow: scroll;
+  }
+  .current {
+    justify-content: center;
+    gap: 1rem;
+  }
+  /* fonts */
+  .weatherCont,
+  .tempContainer {
+    font-size: var(--fontSizeSemiHighlightMobile);
+  }
+  .name,
+  .date {
+    font-size: var(--fontSizeHighlightMobile);
+  }
+  .feelsLike {
+    font-size: 1rem;
+  }
+  .current {
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+  .dayContainer {
+    min-height: 20vh;
+    min-width: 50vw;
+    justify-content: center;
+  }
+}
+.dayContainer {
   display: flex;
   flex-direction: column;
-  max-height: 100%;
-  font-size: var(--fontSize);
-  font-family: 'Raleway', sans-serif;
-  font-weight: 500;
-  font-style: medium;
+  align-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+.alerts {
+  padding: 0.5rem;
+  border-radius: var(--containerRadius);
+  align-self: center;
 }
 /*Spaces weather infos*/
 .current {
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  padding: var(--sidePaddings);
+  padding: 0.5rem;
+}
+.highlight {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  gap: 0.7rem;
+}
+.currentWeather {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.weatherCont,
+.tempContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.feelsLike {
+  font-style: italic;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  font-weight: 500;
+  font-style: medium;
+  padding: 1rem;
 }
 .daily {
   display: grid;
   align-items: center;
   justify-items: center;
   justify-content: center;
-  grid-template-columns: repeat(auto-fit, 350px);
+  grid-template-columns: repeat(auto-fit, clamp(250px, 350px, 50vw));
   grid-template-rows: repeat(auto, 1fr);
   padding: 1rem;
-  gap: 3rem;
-}
-.dayContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  width: 14rem;
-  height: 13rem;
-  padding: 1rem;
+  gap: 1rem;
 }
 /*  SVG */
 /* targets forecast SVGs */
 .dayDate ~ div > svg > svg,
-.maxTempSvg > svg {
-  width: 1.7rem;
+.maxTempSvg > svg,
+.minTempSvg > svg {
+  min-width: 1.7rem;
+  max-width: 1.7rem;
+  height: 100%;
 }
 
 /* Right side divs */
@@ -98,67 +217,37 @@ svg {
 .snow1hCont,
 .currentSvg {
   display: none;
+  justify-content: flex-end;
 }
 
 /*Current weather/search area */
-/* limits growth when alerts are present */
-.highlight {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 0.7rem;
-}
-.alerts {
-  max-width: 14vw;
-}
-.currentWeather {
-  width: 21vw;
-  min-width: 21rem;
+/* centers itself despite of other flex settings */
+.feelsLike,
+.date,
+.name,
+.time {
+  align-self: center;
 }
 .searchContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1rem;
+  height: 8vh;
 }
 .searchArea {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  padding: 1rem;
+  border-radius: var(--containerRadius);
 }
 #search {
   all: unset;
   padding: 0.4rem;
   height: 1.3rem;
-  border: 1px solid black;
   border-radius: 0.5rem;
-}
-.weatherCont,
-.tempContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  font-size: var(--fontSizeHightlight);
-}
-.name {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 700;
-  font-size: var(--fontSizeSemiHighlight);
-}
-.date {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 600;
-  font-size: var(--fontSizeSemiHighlight);
-}
-.feelsLike {
-  font-style: italic;
-  font-size: 0.9rem;
-}
-/*Limit alerts font */
-.alerts {
-  font-size: 0.9rem;
+  width: 95%;
 }
 /*daily forecast */
 .dayDate {
@@ -167,14 +256,34 @@ svg {
 /* trick to appear centralized */
 .minTempSvg,
 .maxTempSvg {
-  margin-left: 0.25rem;
+  margin-left: 0.15rem;
 }
 
 /* wind adjusts */
-.windData {
+.windData,
+.rainData,
+.snowData {
   display: flex;
   flex-direction: column;
 }
 .windSpeed {
   align-self: flex-end;
+}
+/* containers opacity background */
+main > section > section,
+.dayContainer {
+  border-radius: var(--containerRadius);
+  padding: 1.2rem;
+}
+
+/* high specificity */
+.dayContainer > * {
+  align-items: flex-start;
+}
+.forecastItemContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 0.5rem;
 }
