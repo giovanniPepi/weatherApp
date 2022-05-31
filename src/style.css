@@ -23,9 +23,9 @@ body {
   --fontSizeHighlightMobile: 1.8rem;
   --containerRadius: 1rem;
   --topSectionsWidth: 23vw;
-  --topSectionsHeight: 56vh;
+  --topSectionsHeight: 55vh;
   --topSectionsWidthMobile: 35vw;
-  --topSectionsHeightMobile: 50vh;
+  --topSectionsHeightMobile: 55vh;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -92,6 +92,8 @@ svg {
   .highlight {
     min-width: var(--topSectionsWidthMobile);
     min-height: var(--topSectionsHeightMobile);
+    max-width: var(--topSectionsWidthMobile);
+    max-height: var(--topSectionsHeightMobile);
   }
   .alerts {
     min-width: calc(var(--topSectionsWidthMobile) * 1.8);
