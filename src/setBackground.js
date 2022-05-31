@@ -81,10 +81,10 @@ const setBackground = (body, timeNow, currentWeather, hasAlerts) => {
         setUIcolors('#f7f4f4', '#FDE047', '#0808084a', hasAlerts);
       }
       break;
-    case 'Mist': {
+    case 'Mist':
       body.style.backgroundImage = `url(${mistDay})`;
       setUIcolors('#f7f4f4', '#FDE047', '#0808084a', hasAlerts);
-    }
+      break;
     default:
       body.style.backgroundImage = `url(${rainDay})`;
       setUIcolors('#f8f8f8', '#67e8f9', '#04040456', hasAlerts);
