@@ -19,13 +19,15 @@ body {
   --fontSize: 1rem;
   --fontSizeSemiHighlight: 1.5rem;
   --fontSizeHighlight: 2rem;
-  --fontSizeSemiHighlightMobile: 1.2rem;
-  --fontSizeHighlightMobile: 1.8rem;
+  --fontSizeSemiHighlightMobile: 1.1rem;
+  --fontSizeHighlightMobile: 1.5rem;
   --containerRadius: 1rem;
-  --topSectionsWidth: 23vw;
-  --topSectionsHeight: 55vh;
+  --topSectionsWidth: clamp(250px, 15vw, 20rem);
+  --topSectionsHeight: clamp(350px, 35vh, 50rem);
   --topSectionsWidthMobile: 34vw;
   --topSectionsHeightMobile: 55vh;
+  --topSectionsHeightMobileMax: 65vh;
+
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -33,13 +35,15 @@ button {
   background: inherit;
 }
 svg {
-  width: 2rem;
-  height: 2rem;
   fill: rgb(110, 35, 223);
 }
 
 /* PC */
 @media screen and (min-width: 801px) {
+  svg {
+    width: 2rem;
+    height: 2rem;
+  }
   .highlight {
     justify-content: space-between;
     gap: 0.1rem;
@@ -56,7 +60,7 @@ svg {
     overflow: scroll;
   }
   .current {
-    justify-content: space-evenly;
+    justify-content: center;
     gap: 0.8rem;
   }
   /* fonts */
@@ -86,15 +90,19 @@ svg {
 
 /* mobile */
 @media screen and (min-width: 300px) and (max-width: 800px) {
+  svg {
+    width: 1.1rem;
+    height: 1.1rem;
+  }
   .highlight {
     justify-content: space-evenly;
   }
   .currentWeather,
   .highlight {
     min-width: var(--topSectionsWidthMobile);
-    min-height: var(--topSectionsHeightMobile);
+    min-height: clamp(300px, var(--topSectionsHeightMobile), 100rem);
     max-width: var(--topSectionsWidthMobile);
-    max-height: var(--topSectionsHeightMobile);
+    max-height: var(--topSectionsHeightMobileMax);
   }
   .alerts {
     min-width: calc(var(--topSectionsWidthMobile) * 1.8);
