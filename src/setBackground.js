@@ -28,7 +28,7 @@ const setBackground = (body, timeNow, currentWeather, hasAlerts) => {
     case 'Clear':
       if (night) {
         body.style.backgroundImage = `url(${clearSkyNight})`;
-        setUIcolors('#FDE68A', '#672dcb', '#ffffff25', hasAlerts);
+        setUIcolors('#fdfbfb', '#e54624', '#ffffff25', hasAlerts);
       } else {
         body.style.backgroundImage = `url(${clearSkyDay})`;
         setUIcolors('#f7f4f4', '#FDE047', '#0808084a', hasAlerts);
