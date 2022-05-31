@@ -20,6 +20,7 @@ const setWeatherIcon = (weather, time, future) => {
       if (!getNight || future) return clearIcon;
       return moonIcon;
     case 'Rain':
+    case 'Drizzle':
       return rainIcon;
     case 'Thunderstorm':
       return thunderIcon;

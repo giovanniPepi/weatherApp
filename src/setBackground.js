@@ -35,6 +35,7 @@ const setBackground = (body, timeNow, currentWeather, hasAlerts) => {
       }
       break;
     case 'Rain':
+    case 'Drizzle':
       if (night) {
         body.style.backgroundImage = `url(${rainNight})`;
         setUIcolors('#fdfbfb', '#BEF264', '#040404ab', hasAlerts);
