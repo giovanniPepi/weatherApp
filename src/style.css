@@ -52,7 +52,8 @@ svg {
   }
   .alerts {
     max-width: calc(var(--topSectionsWidth) * 2);
-    max-height: 30vh;
+    max-height: 20vh;
+    overflow: scroll;
   }
   .current {
     justify-content: space-evenly;
@@ -97,7 +98,8 @@ svg {
   }
   .alerts {
     min-width: calc(var(--topSectionsWidthMobile) * 1.8);
-    max-height: 30vh;
+    max-height: 10vh;
+    overflow: scroll;
   }
   .current {
     justify-content: center;
