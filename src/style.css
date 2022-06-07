@@ -258,7 +258,7 @@ svg {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 1rem;
+  padding: 0.7rem;
   border-radius: var(--containerRadius);
 }
 #search {
