@@ -66,7 +66,7 @@ const getDom = (lat, lon, loc, country) => {
       uv.textContent = `UV ${getFixedNumber(recData.current.uvi, 0)}`;
       sunrise.textContent = `${sunriseTime}`;
       sunset.textContent = `${sunsetTime}`;
-      console.log(sunriseTime, '+', sunsetTime);
+      // console.log(sunriseTime, '+', sunsetTime);
       visibility.textContent = `${recData.current.visibility / 1000} km`;
       weather.textContent = capitalizeFirst(
         recData.current.weather[0].description
