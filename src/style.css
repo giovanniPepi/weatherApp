@@ -22,10 +22,10 @@ body {
   --fontSizeSemiHighlightMobile: 1.1rem;
   --fontSizeHighlightMobile: 1.5rem;
   --containerRadius: 1rem;
-  --topSectionsWidth: clamp(250px, 15vw, 20rem);
-  --topSectionsHeight: clamp(450px, 35vh, 50rem);
+  --topSectionsWidth: clamp(230px, 14vw, 20rem);
+  --topSectionsHeight: clamp(420px, 32vh, 50rem);
   --topSectionsWidthMobile: 34vw;
-  --topSectionsHeightMobile: 55vh;
+  --topSectionsHeightMobile: 40vh;
   --topSectionsHeightMobileMax: 65vh;
 
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
@@ -38,8 +38,27 @@ svg {
   fill: rgb(110, 35, 223);
 }
 
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: inherit;
+}
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+*::-webkit-scrollbar-corner {
+  background: inherit;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: inherit;
+  border-radius: 20px;
+  border: 3px solid inherit;
+}
+
 /* PC */
-@media screen and (min-width: 801px) {
+@media screen and (min-width: 700px) {
   svg {
     width: 2rem;
     height: 2rem;

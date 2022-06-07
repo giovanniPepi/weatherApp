@@ -44,15 +44,9 @@ const getDom = (lat, lon, loc, country) => {
 
       // unit conversion before writing
       // slices out seconds, keep am/PM
-      const sunriseTime = `${getHour(recData.current.sunrise).slice(
-        0,
-        4
-      )} ${getHour(recData.current.sunrise).slice(7, 10)}`;
+      const sunriseTime = `${getHour(recData.current.sunrise).slice(0, 5)}`;
 
-      const sunsetTime = `${getHour(recData.current.sunset).slice(
-        0,
-        4
-      )} ${getHour(recData.current.sunset).slice(7, 10)}`;
+      const sunsetTime = `${getHour(recData.current.sunset).slice(0, 5)}`;
       const windSpeedKm = convertToKm(recData.current.wind_speed);
 
       // shows current hour without seconds
@@ -72,6 +66,7 @@ const getDom = (lat, lon, loc, country) => {
       uv.textContent = `UV ${getFixedNumber(recData.current.uvi, 0)}`;
       sunrise.textContent = `${sunriseTime}`;
       sunset.textContent = `${sunsetTime}`;
+      console.log(sunriseTime, '+', sunsetTime);
       visibility.textContent = `${recData.current.visibility / 1000} km`;
       weather.textContent = capitalizeFirst(
         recData.current.weather[0].description
