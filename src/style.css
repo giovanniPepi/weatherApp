@@ -207,7 +207,7 @@ svg {
   align-items: center;
   justify-items: center;
   justify-content: center;
-  grid-template-columns: repeat(auto-fit, clamp(250px, 350px, 50vw));
+  grid-template-columns: repeat(auto-fit, clamp(250px, 450px, 50vw));
   grid-template-rows: repeat(auto, 1fr);
   padding: 0.5rem;
   gap: 1rem;
@@ -291,7 +291,7 @@ svg {
 main > section > section,
 .dayContainer {
   border-radius: var(--containerRadius);
-  padding: 0.6rem;
+  padding: 1rem;
 }
 
 /* high specificity */
