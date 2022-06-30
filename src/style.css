@@ -14,8 +14,8 @@ body {
   text-align: center;
 }
 :root {
-  --sidePaddings: 1.5rem;
-  --middleGap: 4rem;
+  --sidePaddings: 1rem;
+  --middleGap: 3rem;
   --fontSize: 1rem;
   --fontSizeSemiHighlight: 1.5rem;
   --fontSizeHighlight: 2rem;
@@ -170,7 +170,7 @@ svg {
 .current {
   display: flex;
   align-items: center;
-  padding: 0.5rem;
+  padding: 0.4rem;
 }
 .highlight {
   display: flex;
@@ -200,7 +200,7 @@ svg {
   max-height: 100%;
   font-weight: 500;
   font-style: medium;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 .daily {
   display: grid;
@@ -209,7 +209,7 @@ svg {
   justify-content: center;
   grid-template-columns: repeat(auto-fit, clamp(250px, 350px, 50vw));
   grid-template-rows: repeat(auto, 1fr);
-  padding: 1rem;
+  padding: 0.5rem;
   gap: 1rem;
 }
 /*  SVG */
@@ -251,14 +251,13 @@ svg {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
   height: 8vh;
 }
 .searchArea {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.7rem;
+  padding: 0.5rem;
   border-radius: var(--containerRadius);
 }
 #search {
@@ -292,7 +291,7 @@ svg {
 main > section > section,
 .dayContainer {
   border-radius: var(--containerRadius);
-  padding: 1.2rem;
+  padding: 0.6rem;
 }
 
 /* high specificity */
